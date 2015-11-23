@@ -85,7 +85,11 @@
     <ClCompile Include="Bloque.cpp" />
     <ClCompile Include="Bomba.cpp" />
     <ClCompile Include="Caja.cpp" />
+    <ClCompile Include="Congratulations.cpp" />
+    <ClCompile Include="Creditos.cpp" />
     <ClCompile Include="Escena.cpp" />
+    <ClCompile Include="GameOver.cpp" />
+    <ClCompile Include="Instrucciones.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="Inicio.cpp" />
     <ClCompile Include="Introduccion.cpp" />
@@ -103,6 +107,7 @@
     <ClCompile Include="Nivel4.cpp" />
     <ClCompile Include="Nivel5.cpp" />
     <ClCompile Include="Objeto.cpp" />
+    <ClCompile Include="Pausa.cpp" />
     <ClCompile Include="Piso.cpp" />
     <ClCompile Include="Upecino.cpp" />
     <ClCompile Include="Figura.cpp" />
@@ -110,6 +115,8 @@
     <ClCompile Include="Posicion.cpp" />
     <ClCompile Include="Vivo.cpp" />
     <ClCompile Include="Winform.cpp" />
+    <ClCompile Include="YouLose.cpp" />
+    <ClCompile Include="YouWin.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controladora.h" />

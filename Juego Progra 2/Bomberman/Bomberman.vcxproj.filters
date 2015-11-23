@@ -126,6 +126,27 @@
     <ClCompile Include="Item.cpp">
       <Filter>Source Files\Objetos</Filter>
     </ClCompile>
+    <ClCompile Include="Congratulations.cpp">
+      <Filter>Source Files\Escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="Creditos.cpp">
+      <Filter>Source Files\Escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="Instrucciones.cpp">
+      <Filter>Source Files\Escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="Pausa.cpp">
+      <Filter>Source Files\Escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="YouWin.cpp">
+      <Filter>Source Files\Escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="YouLose.cpp">
+      <Filter>Source Files\Escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOver.cpp">
+      <Filter>Source Files\Escenas</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controladora.h">
