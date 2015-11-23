@@ -14,7 +14,7 @@ namespace Bomberman
 	{
 
 	}
-	void Maligno4::CuandoMuere()
+	void Maligno4::Muere()
 	{
 
 	}

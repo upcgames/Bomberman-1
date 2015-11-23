@@ -7,6 +7,7 @@ namespace Bomberman
 		imagen = Image::FromFile("Maligno1.png");
 		
 		sentidoDeGiro = (Winform::aleatorio->Next(2)) == 0? true: false;
+		EsAtacado += gcnew Action(this, &Maligno1::Muere);
 		posicion = p;
 		tipo = m1;
 		vida = 0;
@@ -30,18 +31,21 @@ namespace Bomberman
 		else if (direccion == Derecha)
 			subIndice = 3;
 
+		if (estado == Idle)
 			Avanzar();
 
-		if (estado == Muriendo)
+		else if (estado == Muriendo)
 		{
 			indiceSprite++;
 			subIndice = 5;
 
-			if (indiceSprite == 16)
+			if (indiceSprite == 8)//Termina animacion de muerte
 			{
-				Threading::Thread::Sleep(2000);
-				Escena::ActivarEscena(Winform::inicio);
-				Escena::DesactivarEscena(Winform::juego);
+				visible = false;
+				Winform::malignos->malignosRestantes--;
+
+				if (Winform::malignos->malignosRestantes == 0)
+					MessageBox::Show("Ganaste el Nivel");
 				return;
 			}
 		}
@@ -61,9 +65,10 @@ namespace Bomberman
 	{
 
 	}
-	void Maligno1::CuandoMuere()
+	void Maligno1::Muere()
 	{
-
+		estado = Muriendo;
+		indiceSprite = -1;
 	}
 	void Maligno1::Avanzar()
 	{

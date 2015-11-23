@@ -37,7 +37,7 @@ namespace Bomberman
 			indiceSprite++;
 			subIndice = 5;
 
-			if (indiceSprite == 16)
+			if (indiceSprite == 16)//termina animacion de muerte
 			{
 				Threading::Thread::Sleep(2000);
 				Escena::ActivarEscena(Winform::inicio);

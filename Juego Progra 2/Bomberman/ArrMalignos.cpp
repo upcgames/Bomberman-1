@@ -6,6 +6,7 @@ namespace Bomberman
 	{
 		arreglo = gcnew array <Maligno^>(size);
 		cantidad = size;
+		malignosRestantes = cantidad;
 	}
 	void ArrMalignos::EliminarMaligno(Maligno^ maligno)
 	{
@@ -32,8 +33,8 @@ namespace Bomberman
 		{
 			if (arreglo[i]->visible)
 			{
-				if (arreglo[i]->getBody().IntersectsWith(Winform::upecino->getBody()))
-					Upecino::EsAtacado();
+				if (arreglo[i]->getBody().IntersectsWith(Winform::upecino->getBody()) && arreglo[i]->estado != Muriendo)
+					Winform::upecino->EsAtacado();
 				if (arreglo[i]->tipo == m1)
 					dynamic_cast<Maligno1^>(arreglo[i])->MostrarSprite(graphics);
 			}

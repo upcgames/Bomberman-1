@@ -39,6 +39,7 @@ namespace Bomberman
 		int subIndice;
 		Figura();
 		Rectangle getBody();
+		static Rectangle getBody(int xx, int yy, int pAncho, int pAlto);
 	};
 
 	public ref class Vivo : public Figura
@@ -71,6 +72,7 @@ namespace Bomberman
 	public:
 		Malignos tipo;
 		bool visible;
+		static void ColisionMaligno_Fuego(int xFuego, int yFuego);
 	};
 
 	public ref class Maligno1 : public Maligno
@@ -81,7 +83,7 @@ namespace Bomberman
 		bool sentidoDeGiro;
 		void MostrarSprite(Graphics^ graphics);
 		void CuandoBombaLeCae(int damageBomba);
-		void CuandoMuere();
+		void Muere();
 		void Avanzar();
 	};
 
@@ -91,7 +93,7 @@ namespace Bomberman
 		Maligno2(Posicion^ p, int pVida);
 		void MostrarSprite(Graphics^ graphics);
 		void CuandoBombaLeCae(int damageBomba);
-		void CuandoMuere();
+		void Muere();
 		void Avanzar();
 	};
 
@@ -101,7 +103,7 @@ namespace Bomberman
 		Maligno3(Posicion^ p, int pVida);
 		void MostrarSprite(Graphics^ graphics);
 		void CuandoBombaLeCae(int damageBomba);
-		void CuandoMuere();
+		void Muere();
 		void Avanzar();
 	};
 
@@ -111,7 +113,7 @@ namespace Bomberman
 		Maligno4(Posicion^ p, int pVida);
 		void MostrarSprite(Graphics^ graphics);
 		void CuandoBombaLeCae(int damageBomba);
-		void CuandoMuere();
+		void Muere();
 		void Avanzar();
 	};
 
@@ -188,6 +190,7 @@ namespace Bomberman
 		array<Maligno^>^ arreglo;
 		ArrMalignos(int size);
 		int cantidad;
+		int malignosRestantes;
 		void EliminarMaligno(Maligno^ maligno);
 		void MostrarMalignos(Graphics^ graphics);
 	};

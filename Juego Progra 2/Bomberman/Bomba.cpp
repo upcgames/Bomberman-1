@@ -32,8 +32,10 @@ namespace Bomberman
 		{
 			objeto = Nivel::getObjeto(posicion->getIncrementada(Arriba, 64 * i));
 
-			if (Rectangle(posicion->x, posicion->y - 64 * i, 64, 64).IntersectsWith(Rectangle(Winform::upecino->posicion->x, Winform::upecino->posicion->y, 64, 64)))
+			if (Rectangle(posicion->x, posicion->y - 64 * i, 64, 64).IntersectsWith(Winform::upecino->getBody()))
 				Winform::upecino->EsAtacado();
+			
+			Maligno::ColisionMaligno_Fuego(posicion->x, posicion->y - 64 * i);
 
 			if (objeto->tipo == oBloque)
 				break;
@@ -59,8 +61,10 @@ namespace Bomberman
 		{
 			objeto = Nivel::getObjeto(posicion->getIncrementada(Abajo, 64 * i));
 
-			if (Rectangle(posicion->x, posicion->y + 64 * i, 64, 64).IntersectsWith(Rectangle(Winform::upecino->posicion->x, Winform::upecino->posicion->y, 64, 64)))
+			if (Rectangle(posicion->x, posicion->y + 64 * i, 64, 64).IntersectsWith(Winform::upecino->getBody()))
 				Winform::upecino->EsAtacado();
+
+			Maligno::ColisionMaligno_Fuego(posicion->x, posicion->y + 64 * i);
 
 			if (objeto->tipo == oBloque)
 				break;
@@ -85,8 +89,10 @@ namespace Bomberman
 		{
 			objeto = Nivel::getObjeto(posicion->getIncrementada(Izquierda, 64 * i));
 
-			if (Rectangle(posicion->x - 64 * i, posicion->y, 64, 64).IntersectsWith(Rectangle(Winform::upecino->posicion->x, Winform::upecino->posicion->y, 64, 64)))
+			if (Rectangle(posicion->x - 64 * i, posicion->y, 64, 64).IntersectsWith(Winform::upecino->getBody()))
 				Winform::upecino->EsAtacado();
+
+			Maligno::ColisionMaligno_Fuego(posicion->x - 64 * i, posicion->y);
 
 			if (objeto->tipo == oBloque)
 				break;
@@ -111,8 +117,10 @@ namespace Bomberman
 		{
 			objeto = Nivel::getObjeto(posicion->getIncrementada(Derecha, 64 * i));
 
-			if (Rectangle(posicion->x + 64 * i, posicion->y, 64, 64).IntersectsWith(Rectangle(Winform::upecino->posicion->x, Winform::upecino->posicion->y, 64, 64)))
+			if (Rectangle(posicion->x + 64 * i, posicion->y, 64, 64).IntersectsWith(Winform::upecino->getBody()))
 				Winform::upecino->EsAtacado();
+
+			Maligno::ColisionMaligno_Fuego(posicion->x + 64 * i, posicion->y);
 
 			if (objeto->tipo == oBloque)
 				break;
