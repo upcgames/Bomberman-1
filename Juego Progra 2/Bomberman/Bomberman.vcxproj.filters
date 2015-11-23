@@ -87,10 +87,10 @@
     <ClCompile Include="Piso.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WinForm.cpp">
+    <ClCompile Include="Escena.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Escena.cpp">
+    <ClCompile Include="Winform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Introduccion.cpp">
@@ -107,14 +107,9 @@
     <ClInclude Include="Controladora.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Winform.h">
+    <ClInclude Include="WinForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\..\..\Desktop\Upecino.png">
-      <Filter>Resource Files</Filter>
-    </Image>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Winform.resx">

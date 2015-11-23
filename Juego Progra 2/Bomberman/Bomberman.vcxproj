@@ -90,7 +90,6 @@
     <ClCompile Include="Inicio.cpp" />
     <ClCompile Include="Introduccion.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="WinForm.cpp" />
     <ClCompile Include="Maligno.cpp" />
     <ClCompile Include="Maligno1.cpp" />
     <ClCompile Include="Maligno2.cpp" />
@@ -109,20 +108,18 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Posicion.cpp" />
     <ClCompile Include="Vivo.cpp" />
+    <ClCompile Include="Winform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controladora.h" />
-    <ClInclude Include="Winform.h">
+    <ClInclude Include="WinForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Winform.resx">
-      <DependentUpon>Winform.h</DependentUpon>
+    <EmbeddedResource Include="WinForm.resx">
+      <DependentUpon>WinForm.h</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\..\..\Desktop\Upecino.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

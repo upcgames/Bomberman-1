@@ -202,10 +202,10 @@ namespace Bomberman
 		int contador;
 		bool activo;
 		bool dibujado;
-		Escena();
 		KeyEventHandler^ onKeyDown;
 		KeyEventHandler^ onKeyUp;
 		EventHandler^ onTimerTick;
+		Escena();
 		static void ActivarEscena(Escena^ escena);
 		static void DesactivarEscena(Escena^ escena);
 	};
