@@ -23,7 +23,14 @@ namespace Bomberman
 		static ArrMalignos^ malignos;
 		static Introduccion^ introduccion;
 		static Inicio^ inicio;
-		static InGame^ inGame;
+		static Juego^ juego;
+
+		static Nivel1^ nivel1;
+		static Nivel2^ nivel2;
+		static Nivel3^ nivel3;
+		static Nivel4^ nivel4;
+		static Nivel5^ nivel5;
+		
 		Winform(void);
 		~Winform();
 	public:

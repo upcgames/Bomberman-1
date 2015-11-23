@@ -226,10 +226,10 @@ namespace Bomberman
 		void teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
 	};
 
-	public ref class InGame : public Escena
+	public ref class Juego : public Escena
 	{
 	public:
-		InGame();
+		Juego();
 		void timerTick(System::Object^  sender, System::EventArgs^  e);
 		void teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
 		void teclaUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);

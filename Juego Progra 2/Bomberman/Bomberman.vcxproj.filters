@@ -102,9 +102,6 @@
     <ClCompile Include="Inicio.cpp">
       <Filter>Source Files\Escenas</Filter>
     </ClCompile>
-    <ClCompile Include="InGame.cpp">
-      <Filter>Source Files\Escenas</Filter>
-    </ClCompile>
     <ClCompile Include="Nivel.cpp">
       <Filter>Source Files\Clases Base</Filter>
     </ClCompile>
@@ -122,6 +119,9 @@
     </ClCompile>
     <ClCompile Include="Nivel5.cpp">
       <Filter>Source Files\Niveles</Filter>
+    </ClCompile>
+    <ClCompile Include="Juego.cpp">
+      <Filter>Source Files\Escenas</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

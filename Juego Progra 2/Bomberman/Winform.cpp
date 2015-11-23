@@ -11,7 +11,7 @@ namespace Bomberman
 		aleatorio = gcnew Random();
 		introduccion = gcnew Introduccion();
 		inicio = gcnew Inicio();
-		inGame = gcnew InGame();
+		juego = gcnew Juego();
 		Escena::ActivarEscena(introduccion);
 	}
 

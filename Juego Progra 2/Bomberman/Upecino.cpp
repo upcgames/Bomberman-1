@@ -40,7 +40,7 @@ namespace Bomberman
 			{
 				Threading::Thread::Sleep(2000);
 				Escena::ActivarEscena(Winform::inicio);
-				Escena::DesactivarEscena(Winform::inGame);
+				Escena::DesactivarEscena(Winform::juego);
 				return;
 			}
 		}
