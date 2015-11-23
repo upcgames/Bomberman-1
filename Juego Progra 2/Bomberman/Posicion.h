@@ -1,7 +1,20 @@
-#include "Winform.h"
+#include "Directorio.h"
 
 namespace Bomberman
 {
+	ref class Posicion
+	{
+	public:
+		int x;
+		int y;
+		Posicion(int pX, int pY);
+		Posicion(int pX, int pY, int multiplo);
+		bool EsIgualA(Posicion^ p);
+		void Igualar(Posicion^ p);
+		void Aumentar(Direcciones direccion, int velocidad);
+		Posicion^ getIncrementada(Direcciones direccion, int velocidad);
+	};
+
 	Posicion::Posicion(int pX, int pY)
 	{
 		x = pX;

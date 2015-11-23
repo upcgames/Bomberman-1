@@ -1,5 +1,5 @@
 #pragma once
-#include "Controladora.h"
+#include "Directorio.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -8,9 +8,10 @@ using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
 
-namespace Bomberman 
+namespace Bomberman
 {
-	public ref class Winform : public System::Windows::Forms::Form
+
+	ref class Winform : public System::Windows::Forms::Form
 	{
 	public:
 		static Winform^ winform;
@@ -30,9 +31,28 @@ namespace Bomberman
 		static Nivel3^ nivel3;
 		static Nivel4^ nivel4;
 		static Nivel5^ nivel5;
-		
-		Winform(void);
-		~Winform();
+
+		Winform(void)
+		{
+			InitializeComponent();
+			graphics = this->CreateGraphics();
+			context = BufferedGraphicsManager::Current;
+			winform = this;
+			aleatorio = gcnew Random();
+			introduccion = gcnew Introduccion();
+			inicio = gcnew Inicio();
+			juego = gcnew Juego();
+			Escena::ActivarEscena(introduccion);
+		}
+
+		~Winform()
+		{
+			if (components)
+			{
+				delete components;
+			}
+		}
+
 	public:
 		static System::Windows::Forms::Timer^  timer;
 		System::ComponentModel::IContainer^  components;

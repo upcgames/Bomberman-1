@@ -51,9 +51,6 @@
     <ClCompile Include="Escena.cpp">
       <Filter>Source Files\Clases Base</Filter>
     </ClCompile>
-    <ClCompile Include="Figura.cpp">
-      <Filter>Source Files\Clases Base</Filter>
-    </ClCompile>
     <ClCompile Include="Objeto.cpp">
       <Filter>Source Files\Clases Base</Filter>
     </ClCompile>
@@ -85,9 +82,6 @@
       <Filter>Source Files\Clases Base</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files\Clases Unicas</Filter>
-    </ClCompile>
-    <ClCompile Include="Posicion.cpp">
       <Filter>Source Files\Clases Unicas</Filter>
     </ClCompile>
     <ClCompile Include="Winform.cpp">
@@ -153,6 +147,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WinForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Posicion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Directorio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Figura.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

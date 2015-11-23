@@ -1,4 +1,4 @@
-#include "Winform.h"
+#include "Directorio.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
