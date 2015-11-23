@@ -23,7 +23,8 @@ namespace Bomberman
 
 			Nivel::MostrarNivel(buffer->Graphics);
 			Winform::bombas->MostrarBombas(buffer->Graphics);
-			Winform::upecino->MostrarSprite(buffer->Graphics);
+			Winform::upecino->MostrarUpecino(buffer->Graphics);
+			Winform::malignos->MostrarMalignos(buffer->Graphics);
 			buffer->Render(Winform::graphics);
 			dibujado = true;
 		}

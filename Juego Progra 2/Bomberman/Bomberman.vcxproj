@@ -94,6 +94,7 @@
     <ClCompile Include="Maligno1.cpp" />
     <ClCompile Include="Maligno2.cpp" />
     <ClCompile Include="Maligno3.cpp" />
+    <ClCompile Include="Maligno4.cpp" />
     <ClCompile Include="MatrizObjetos.cpp" />
     <ClCompile Include="Nivel.cpp" />
     <ClCompile Include="Nivel1.cpp" />

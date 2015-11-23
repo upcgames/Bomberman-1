@@ -2,13 +2,60 @@
 
 namespace Bomberman
 {
-	Maligno1::Maligno1(Posicion^ p, Malignos pTipo, int pVida)
+	Maligno1::Maligno1(Posicion^ p, int pVida)
 	{
-
+		imagen = Image::FromFile("Maligno1.png");
+		
+		sentidoDeGiro = (Winform::aleatorio->Next(2)) == 0? true: false;
+		posicion = p;
+		tipo = m1;
+		vida = 0;
+		contador = sentidoDeGiro? -1 : 1;
+		indiceSprite = 0;
+		ancho = 64;
+		alto = 64;
+		direccion = Abajo;
+		visible = true;
+		estado = Idle;
+		velocidad = pVida;
 	}
 	void Maligno1::MostrarSprite(Graphics^ graphics)
 	{
-		graphics->DrawImage(imagen, Rectangle(0, 0, ancho, alto), Rectangle(0, 0, ancho, alto), GraphicsUnit::Pixel);
+		if (direccion == Arriba)
+			subIndice = 0;
+		else if (direccion == Abajo)
+			subIndice = 1;
+		else if (direccion == Izquierda)
+			subIndice = 2;
+		else if (direccion == Derecha)
+			subIndice = 3;
+
+			Avanzar();
+
+		if (estado == Muriendo)
+		{
+			indiceSprite++;
+			subIndice = 5;
+
+			if (indiceSprite == 16)
+			{
+				Threading::Thread::Sleep(2000);
+				Escena::ActivarEscena(Winform::inicio);
+				Escena::DesactivarEscena(Winform::juego);
+				return;
+			}
+		}
+		else if (estado == Inmortal)
+		{
+			tiempoInmortal -= 1;
+
+			if (tiempoInmortal == 0)
+				estado = Idle;
+		}
+
+		graphics->DrawImage(imagen, Rectangle(posicion->x, posicion->y, ancho, alto), Rectangle(indiceSprite * 24, subIndice * 24, 23, 23), GraphicsUnit::Pixel);
+		if (estado == Inmortal)
+			graphics->DrawString("III", gcnew Font("Arial", 16, FontStyle::Bold), gcnew SolidBrush(Color::White), Point(posicion->x + 20, posicion->y + 32));
 	}
 	void Maligno1::CuandoBombaLeCae(int damageBomba)
 	{
@@ -20,6 +67,45 @@ namespace Bomberman
 	}
 	void Maligno1::Avanzar()
 	{
-	
+		if (sentidoDeGiro)
+			contador++;
+		else
+			contador--;
+
+		indiceSprite = Math::Abs(contador % 8);
+		
+		if (sentidoDeGiro)
+		{
+			if (contador == 0)
+				direccion = Abajo;
+			else if (contador == 8)
+				direccion = Izquierda;
+			else if (contador == 16)
+				direccion = Arriba;
+			else if (contador == 24)
+				direccion = Derecha;
+			else if (contador == 36)
+			{
+				direccion = Abajo;
+				contador = 0;
+			}
+		}
+		else
+		{
+			if (contador == 0)
+				direccion = Abajo;
+			else if (contador == -8)
+				direccion = Derecha;
+			else if (contador == -16)
+				direccion = Arriba;
+			else if (contador == -24)
+				direccion = Izquierda;
+			else if (contador == -36)
+			{
+				direccion = Abajo;
+				contador = 0;
+			}
+		}
+
 	}
 }

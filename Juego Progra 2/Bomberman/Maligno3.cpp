@@ -2,7 +2,7 @@
 
 namespace Bomberman
 {
-	Maligno3::Maligno3(Posicion^ p, Malignos pTipo, int pVida)
+	Maligno3::Maligno3(Posicion^ p, int pVida)
 	{
 
 	}

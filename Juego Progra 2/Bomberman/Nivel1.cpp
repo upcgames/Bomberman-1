@@ -65,5 +65,11 @@ namespace Bomberman
 				}
 			}
 		}
+		
+		arregloMalignos = gcnew ArrMalignos(4);
+		arregloMalignos->arreglo[0] = gcnew Maligno1(gcnew Posicion(320, 0), 0);
+		arregloMalignos->arreglo[1] = gcnew Maligno1(gcnew Posicion(448, 128), 0);
+		arregloMalignos->arreglo[2] = gcnew Maligno1(gcnew Posicion(512, 384), 0);
+		arregloMalignos->arreglo[3] = gcnew Maligno1(gcnew Posicion(640, 512), 0);
 	}
 }

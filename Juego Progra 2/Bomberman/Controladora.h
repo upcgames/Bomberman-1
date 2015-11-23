@@ -11,7 +11,7 @@ namespace Bomberman
 {
 	public enum Estados { Idle, Inmortal, Fantasma, Muriendo, Celebrando };
 	public enum Direcciones { Arriba, Abajo, Izquierda, Derecha };
-	public enum Malignos { Easy, Normal, Insane };
+	public enum Malignos { m1, m2, m3, m4 };
 	public enum Objetos {oPiso, oBloque, oBomba, oCaja, oItem};
 	public enum Items { Cura, Powerade };
 
@@ -38,6 +38,7 @@ namespace Bomberman
 		int indiceSprite;
 		int subIndice;
 		Figura();
+		Rectangle getBody();
 	};
 
 	public ref class Vivo : public Figura
@@ -45,6 +46,7 @@ namespace Bomberman
 	public:
 		int vida;
 		int tiempoInmortal;
+		Action^ EsAtacado;
 		Estados estado;
 		Direcciones direccion;
 		int velocidad;
@@ -57,8 +59,8 @@ namespace Bomberman
 		static int radioExplosion;
 		static bool moviendose;
 		Upecino(Posicion^ p, String^ pNombre);
-		void MostrarSprite(Graphics^ graphics);
-		void CuandoBombaLeCae(int damageBomba);
+		void MostrarUpecino(Graphics^ graphics);
+		void PierdeUnaVida();
 		void CuandoMuere();
 		void Avanzar(Direcciones direccion);
 		void Detener();
@@ -68,12 +70,15 @@ namespace Bomberman
 	{
 	public:
 		Malignos tipo;
+		bool visible;
 	};
 
 	public ref class Maligno1 : public Maligno
 	{
 	public:
-		Maligno1(Posicion^ p, Malignos pTipo, int pVida);
+		Maligno1(Posicion^ p, int pVida);
+		int contador;
+		bool sentidoDeGiro;
 		void MostrarSprite(Graphics^ graphics);
 		void CuandoBombaLeCae(int damageBomba);
 		void CuandoMuere();
@@ -83,7 +88,7 @@ namespace Bomberman
 	public ref class Maligno2 : public Maligno
 	{
 	public:
-		Maligno2(Posicion^ p, Malignos pTipo, int pVida);
+		Maligno2(Posicion^ p, int pVida);
 		void MostrarSprite(Graphics^ graphics);
 		void CuandoBombaLeCae(int damageBomba);
 		void CuandoMuere();
@@ -93,7 +98,17 @@ namespace Bomberman
 	public ref class Maligno3 : public Maligno
 	{
 	public:
-		Maligno3(Posicion^ p, Malignos pTipo, int pVida);
+		Maligno3(Posicion^ p, int pVida);
+		void MostrarSprite(Graphics^ graphics);
+		void CuandoBombaLeCae(int damageBomba);
+		void CuandoMuere();
+		void Avanzar();
+	};
+
+	public ref class Maligno4 : public Maligno
+	{
+	public:
+		Maligno4(Posicion^ p, int pVida);
 		void MostrarSprite(Graphics^ graphics);
 		void CuandoBombaLeCae(int damageBomba);
 		void CuandoMuere();
@@ -143,7 +158,6 @@ namespace Bomberman
 		bool visible;
 		int radioExplosion;
 		Bomba(Posicion^ p);
-		void golpearUpecino();
 		void Explotar(Graphics^ graphics);
 		void MostrarSprite(Graphics^ graphics);
 	};

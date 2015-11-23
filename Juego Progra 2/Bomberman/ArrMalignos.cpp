@@ -28,6 +28,15 @@ namespace Bomberman
 	}
 	void ArrMalignos::MostrarMalignos(Graphics^ graphics)
 	{
-
+		for (int i = 0; i < cantidad; i++)
+		{
+			if (arreglo[i]->visible)
+			{
+				if (arreglo[i]->getBody().IntersectsWith(Winform::upecino->getBody()))
+					Upecino::EsAtacado();
+				if (arreglo[i]->tipo == m1)
+					dynamic_cast<Maligno1^>(arreglo[i])->MostrarSprite(graphics);
+			}
+		}
 	}
 }

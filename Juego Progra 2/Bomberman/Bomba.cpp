@@ -16,12 +16,12 @@ namespace Bomberman
 	}
 	void Bomba::MostrarSprite(Graphics^ graphics)
 	{
-		indiceSprite = 3- tiempo / 20;
+		indiceSprite = 3 - tiempo / 20;
 
 		graphics->DrawImage(imagen, Rectangle(posicion->x, posicion->y, ancho, alto), Rectangle(indiceSprite * 64, 0, ancho, alto), GraphicsUnit::Pixel);
-		
+
 		if (indiceSprite == 3)
-			Explotar(graphics);	
+			Explotar(graphics);
 	}
 	void Bomba::Explotar(Graphics^ graphics)
 	{
@@ -30,10 +30,10 @@ namespace Bomberman
 		//Arriba
 		for (int i = 1; i <= radioExplosion; i++)
 		{
-			objeto = Nivel::getObjeto(posicion->getIncrementada(Arriba, 64*i));
+			objeto = Nivel::getObjeto(posicion->getIncrementada(Arriba, 64 * i));
 
 			if (Rectangle(posicion->x, posicion->y - 64 * i, 64, 64).IntersectsWith(Rectangle(Winform::upecino->posicion->x, Winform::upecino->posicion->y, 64, 64)))
-				golpearUpecino();
+				Winform::upecino->EsAtacado();
 
 			if (objeto->tipo == oBloque)
 				break;
@@ -60,7 +60,7 @@ namespace Bomberman
 			objeto = Nivel::getObjeto(posicion->getIncrementada(Abajo, 64 * i));
 
 			if (Rectangle(posicion->x, posicion->y + 64 * i, 64, 64).IntersectsWith(Rectangle(Winform::upecino->posicion->x, Winform::upecino->posicion->y, 64, 64)))
-				golpearUpecino();
+				Winform::upecino->EsAtacado();
 
 			if (objeto->tipo == oBloque)
 				break;
@@ -86,7 +86,7 @@ namespace Bomberman
 			objeto = Nivel::getObjeto(posicion->getIncrementada(Izquierda, 64 * i));
 
 			if (Rectangle(posicion->x - 64 * i, posicion->y, 64, 64).IntersectsWith(Rectangle(Winform::upecino->posicion->x, Winform::upecino->posicion->y, 64, 64)))
-				golpearUpecino();
+				Winform::upecino->EsAtacado();
 
 			if (objeto->tipo == oBloque)
 				break;
@@ -112,7 +112,7 @@ namespace Bomberman
 			objeto = Nivel::getObjeto(posicion->getIncrementada(Derecha, 64 * i));
 
 			if (Rectangle(posicion->x + 64 * i, posicion->y, 64, 64).IntersectsWith(Rectangle(Winform::upecino->posicion->x, Winform::upecino->posicion->y, 64, 64)))
-				golpearUpecino();
+				Winform::upecino->EsAtacado();
 
 			if (objeto->tipo == oBloque)
 				break;
@@ -130,27 +130,6 @@ namespace Bomberman
 				Winform::objetos->matriz[objeto->posicion->x / 64, objeto->posicion->y / 64] = gcnew Piso(objeto->posicion);
 			}
 			graphics->DrawImage(imagen, Rectangle(posicion->x + i * 64, posicion->y, ancho, alto), Rectangle(192, 0, ancho, alto), GraphicsUnit::Pixel);
-		}
-	}
-
-	void Bomba::golpearUpecino()
-	{
-		
-		if (Winform::upecino->estado == Idle || Winform::upecino->estado == Fantasma)
-		{
-			if (Winform::upecino->vida == 0)
-			{
-				Upecino::moviendose = false;
-				Winform::upecino->estado = Muriendo;
-				Winform::upecino->indiceSprite = -1;
-			}
-			else
-			{
-				Winform::upecino->tiempoInmortal = 50;
-				Winform::upecino->estado = Inmortal;
-			}
-
-			Winform::upecino->vida -= 1;
 		}
 	}
 }

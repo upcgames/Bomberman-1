@@ -8,6 +8,11 @@ namespace Bomberman
 	{
 
 	}
+
+	Rectangle Figura::getBody()
+	{
+		return Rectangle(posicion->x, posicion->y, ancho, alto);
+	}
 }
 
 

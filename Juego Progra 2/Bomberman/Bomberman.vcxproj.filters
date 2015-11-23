@@ -69,9 +69,6 @@
     <ClCompile Include="MatrizObjetos.cpp">
       <Filter>Source Files\Arreglos</Filter>
     </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>Source Files\Clases Base</Filter>
-    </ClCompile>
     <ClCompile Include="Bomba.cpp">
       <Filter>Source Files\Objetos</Filter>
     </ClCompile>
@@ -122,6 +119,12 @@
     </ClCompile>
     <ClCompile Include="Juego.cpp">
       <Filter>Source Files\Escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="Maligno4.cpp">
+      <Filter>Source Files\Personajes</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files\Objetos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -9,6 +9,7 @@ namespace Bomberman
 		radioExplosion = 1;
 		direccion = Direcciones::Abajo;
 		estado = Estados::Idle;
+		EsAtacado += gcnew Action(this, &Upecino::PierdeUnaVida);
 		velocidad = 8;
 		posicion = p;
 		ancho = 64;
@@ -17,7 +18,7 @@ namespace Bomberman
 		vida = 5;
 		nombre = pNombre;
 	}
-	void Upecino::MostrarSprite(Graphics^ graphics)
+	void Upecino::MostrarUpecino(Graphics^ graphics)
 	{
 		if (direccion == Arriba)
 			subIndice = 0;
@@ -56,9 +57,24 @@ namespace Bomberman
 		if (estado == Inmortal)
 			graphics->DrawString("III", gcnew Font("Arial", 16, FontStyle::Bold), gcnew SolidBrush(Color::White), Point(posicion->x + 20, posicion->y + 32));
 	}
-	void Upecino::CuandoBombaLeCae(int damageBomba)
+	void Upecino::PierdeUnaVida()
 	{
+		if (estado == Idle || estado == Fantasma)
+		{
+			if (vida == 0)
+			{
+				moviendose = false;
+				estado = Muriendo;
+				indiceSprite = -1;
+			}
+			else
+			{
+				tiempoInmortal = 50;
+				estado = Inmortal;
+			}
 
+			vida -= 1;
+		}
 	}
 	void Upecino::CuandoMuere()
 	{
