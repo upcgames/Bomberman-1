@@ -1,15 +1,7 @@
-#pragma once
-#include "Directorio.h"
+#include "Winform.h"
 
 namespace Bomberman
 {
-	ref class Bloque : public Objeto
-	{
-	public:
-		Bloque(Posicion^ p);
-		void MostrarSprite(Graphics^ graphics);
-	};
-
 	Bloque::Bloque(Posicion^ p)
 	{
 		tipo = Objetos::oBloque;

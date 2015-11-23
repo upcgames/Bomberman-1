@@ -1,4 +1,4 @@
-#include "Directorio.h"
+#include "Winform.h"
 
 namespace Bomberman
 {

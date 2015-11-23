@@ -110,7 +110,9 @@
     <ClCompile Include="Pausa.cpp" />
     <ClCompile Include="Piso.cpp" />
     <ClCompile Include="Upecino.cpp" />
+    <ClCompile Include="Figura.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Posicion.cpp" />
     <ClCompile Include="Vivo.cpp" />
     <ClCompile Include="Winform.cpp" />
     <ClCompile Include="YouLose.cpp" />
@@ -118,9 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controladora.h" />
-    <ClInclude Include="Directorio.h" />
-    <ClInclude Include="Figura.h" />
-    <ClInclude Include="Posicion.h" />
     <ClInclude Include="WinForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

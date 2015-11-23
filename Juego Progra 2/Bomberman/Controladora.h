@@ -1,13 +1,46 @@
 #pragma once
-#include "Directorio.h";
+
+using namespace System;
+using namespace System::ComponentModel;
+using namespace System::Collections;
+using namespace System::Windows::Forms;
+using namespace System::Data;
+using namespace System::Drawing;
 
 namespace Bomberman
 {
+	public enum Estados { Idle, Inmortal, Fantasma, Muriendo, Celebrando };
+	public enum Direcciones { Arriba, Abajo, Izquierda, Derecha };
+	public enum Malignos { m1, m2, m3, m4 };
+	public enum Objetos {oPiso, oBloque, oBomba, oCaja, oItem};
+	public enum Items { Cura, Powerade };
 
+	public ref class Posicion
+	{
+	public:
+		int x;
+		int y;
+		Posicion(int pX, int pY);
+		Posicion(int pX, int pY, int multiplo);
+		bool EsIgualA(Posicion^ p);
+		void Igualar(Posicion^ p);                                                                                                                                                                                                                                                                                                                                                                        
+		void Aumentar(Direcciones direccion, int velocidad);
+		Posicion^ getIncrementada(Direcciones direccion, int velocidad);
+	};
 
-	
-
-
+	public ref class Figura
+	{
+	public:
+		Image^ imagen;
+		Posicion^ posicion;
+		int alto;
+		int ancho;
+		int indiceSprite;
+		int subIndice;
+		Figura();
+		Rectangle getBody();
+		static Rectangle getBody(int xx, int yy, int pAncho, int pAlto);
+	};
 
 	public ref class Vivo : public Figura
 	{
@@ -105,7 +138,12 @@ namespace Bomberman
 		void MostrarSprite(Graphics^ graphics);
 	};
 
-
+	public ref class Bloque : public Objeto
+	{
+	public:
+		Bloque(Posicion^ p);
+		void MostrarSprite(Graphics^ graphics);
+	};
 
 	public ref class Item : public Objeto
 	{
@@ -168,11 +206,11 @@ namespace Bomberman
 		static Objeto^ getObjeto(Posicion^ posicion);
 	};
 
-	public ref class Nivel1 : public Nivel{ public: Nivel1(); };
-	public ref class Nivel2 : public Nivel{ public: Nivel2(); };
-	public ref class Nivel3 : public Nivel{ public: Nivel3(); };
-	public ref class Nivel4 : public Nivel{ public: Nivel4(); };
-	public ref class Nivel5 : public Nivel{ public: Nivel5(); };
+	public ref class Nivel1 : public Nivel{public: Nivel1();};
+	public ref class Nivel2 : public Nivel{public: Nivel2();};
+	public ref class Nivel3 : public Nivel{public: Nivel3();};
+	public ref class Nivel4 : public Nivel{public: Nivel4();};
+	public ref class Nivel5 : public Nivel{public: Nivel5();};
 
 	public ref class Escena
 	{
@@ -190,7 +228,7 @@ namespace Bomberman
 	};
 
 	public ref class Introduccion : public Escena
-	{
+	{ 
 	public:
 		Introduccion();
 		void timerTick(System::Object^  sender, System::EventArgs^  e);
@@ -213,4 +251,5 @@ namespace Bomberman
 		void teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
 		void teclaUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
 	};
+
 }

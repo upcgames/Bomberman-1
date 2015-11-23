@@ -1,10 +1,10 @@
-#include "Directorio.h"
+#include "Winform.h"
 
 namespace Bomberman
 {
 	Upecino::Upecino(Posicion^ p, String^ pNombre)
 	{
-		imagen = Image::FromFile("Bomberdog.png");
+		imagen = Image::FromFile("Bomberman1.png");
 		indiceSprite = 0;
 		radioExplosion = 1;
 		direccion = Direcciones::Abajo;
@@ -29,7 +29,7 @@ namespace Bomberman
 		else if (direccion == Derecha)
 			subIndice = 3;
 
-		if (moviendose && estado == Idle || estado == Fantasma)
+		if (moviendose)
 			Avanzar(direccion);
 
 		if (estado == Muriendo)
