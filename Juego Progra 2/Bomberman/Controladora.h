@@ -198,10 +198,10 @@ namespace Bomberman
 	public ref class Escena
 	{
 	public:
-		BufferedGraphics^ buffer;
 		int contador;
 		bool activo;
 		bool dibujado;
+		BufferedGraphics^ buffer;
 		KeyEventHandler^ onKeyDown;
 		KeyEventHandler^ onKeyUp;
 		EventHandler^ onTimerTick;

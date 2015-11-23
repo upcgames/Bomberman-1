@@ -13,8 +13,9 @@ namespace Bomberman
 	public ref class Winform : public System::Windows::Forms::Form
 	{
 	public:
-		
 		static Winform^ winform;
+		static Graphics^ graphics;
+		static BufferedGraphicsContext^ context;
 		static Random^ aleatorio;
 		static Upecino^ upecino;
 		static MatrizObjetos^ objetos;
@@ -23,23 +24,10 @@ namespace Bomberman
 		static Introduccion^ introduccion;
 		static Inicio^ inicio;
 		static InGame^ inGame;
-		Winform(void)
-		{
-			InitializeComponent();
-		}
-
-	protected:
-		~Winform()
-		{
-			if(components)
-			{
-				delete components;
-			}
-		}
-	private: System::Windows::Forms::Timer^  timer;
-	protected:
-	private:
-
+		Winform(void);
+		~Winform();
+	public:
+		static System::Windows::Forms::Timer^  timer;
 		System::ComponentModel::IContainer^  components;
 
 #pragma region Windows Form Designer generated code
@@ -54,6 +42,7 @@ namespace Bomberman
 			// 
 			this->timer->Enabled = true;
 			this->timer->Interval = 50;
+			this->timer->Tick += gcnew System::EventHandler(this, &Winform::timer_Tick);
 			// 
 			// Winform
 			// 
@@ -67,5 +56,7 @@ namespace Bomberman
 
 		}
 #pragma endregion
+	private: System::Void timer_Tick(System::Object^  sender, System::EventArgs^  e) {
+	}
 	};
 }

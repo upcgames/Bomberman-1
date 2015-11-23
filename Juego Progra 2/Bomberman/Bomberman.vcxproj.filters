@@ -13,94 +13,115 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Personajes">
+      <UniqueIdentifier>{1b719dd2-a39b-4d2d-851f-0cb00f6fd6c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Clases Base">
+      <UniqueIdentifier>{eb109793-b0f1-4d71-b50d-b94dcab397cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Arreglos">
+      <UniqueIdentifier>{269e3000-c625-4b64-8fde-99db7e91c4ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objetos">
+      <UniqueIdentifier>{ea5a46c8-a99a-4729-93b4-426a6f88568b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Clases Unicas">
+      <UniqueIdentifier>{cc83d825-9ff5-4ed1-8756-df5ebfeb4e43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Escenas">
+      <UniqueIdentifier>{a31cf1d7-0982-464c-a947-10a4c449c691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Niveles">
+      <UniqueIdentifier>{2f9f1d1e-ca98-4534-a7ec-be731717156b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Figura.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Posicion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vivo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Upecino.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Maligno.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Maligno1.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Personajes</Filter>
     </ClCompile>
     <ClCompile Include="Maligno2.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Personajes</Filter>
     </ClCompile>
     <ClCompile Include="Maligno3.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Personajes</Filter>
     </ClCompile>
-    <ClCompile Include="Objeto.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Caja.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Bloque.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Bomba.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ArrBombas.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MatrizObjetos.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ArrMalignos.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Nivel1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Nivel2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Nivel3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Nivel4.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Nivel5.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Nivel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Piso.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Upecino.cpp">
+      <Filter>Source Files\Personajes</Filter>
     </ClCompile>
     <ClCompile Include="Escena.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Clases Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Figura.cpp">
+      <Filter>Source Files\Clases Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Objeto.cpp">
+      <Filter>Source Files\Clases Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Maligno.cpp">
+      <Filter>Source Files\Clases Base</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrMalignos.cpp">
+      <Filter>Source Files\Arreglos</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrBombas.cpp">
+      <Filter>Source Files\Arreglos</Filter>
+    </ClCompile>
+    <ClCompile Include="MatrizObjetos.cpp">
+      <Filter>Source Files\Arreglos</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files\Clases Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Bomba.cpp">
+      <Filter>Source Files\Objetos</Filter>
+    </ClCompile>
+    <ClCompile Include="Bloque.cpp">
+      <Filter>Source Files\Objetos</Filter>
+    </ClCompile>
+    <ClCompile Include="Caja.cpp">
+      <Filter>Source Files\Objetos</Filter>
+    </ClCompile>
+    <ClCompile Include="Piso.cpp">
+      <Filter>Source Files\Objetos</Filter>
+    </ClCompile>
+    <ClCompile Include="Vivo.cpp">
+      <Filter>Source Files\Clases Base</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\Clases Unicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Posicion.cpp">
+      <Filter>Source Files\Clases Unicas</Filter>
     </ClCompile>
     <ClCompile Include="Winform.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Clases Unicas</Filter>
     </ClCompile>
     <ClCompile Include="Introduccion.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Escenas</Filter>
     </ClCompile>
     <ClCompile Include="Inicio.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Escenas</Filter>
     </ClCompile>
     <ClCompile Include="InGame.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="Nivel.cpp">
+      <Filter>Source Files\Clases Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Nivel3.cpp">
+      <Filter>Source Files\Niveles</Filter>
+    </ClCompile>
+    <ClCompile Include="Nivel1.cpp">
+      <Filter>Source Files\Niveles</Filter>
+    </ClCompile>
+    <ClCompile Include="Nivel2.cpp">
+      <Filter>Source Files\Niveles</Filter>
+    </ClCompile>
+    <ClCompile Include="Nivel4.cpp">
+      <Filter>Source Files\Niveles</Filter>
+    </ClCompile>
+    <ClCompile Include="Nivel5.cpp">
+      <Filter>Source Files\Niveles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
