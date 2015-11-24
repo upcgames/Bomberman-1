@@ -33,9 +33,12 @@ namespace Bomberman
 		
 		Winform(void);
 		~Winform();
+	public: System::Windows::Forms::Timer^  timer;
+	private: System::ComponentModel::IContainer^  components;
 	public:
-		static System::Windows::Forms::Timer^  timer;
-		System::ComponentModel::IContainer^  components;
+	public:
+
+
 
 #pragma region Windows Form Designer generated code
 
@@ -59,11 +62,14 @@ namespace Bomberman
 			this->Name = L"Winform";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Winform";
+			this->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Winform::Winform_MouseClick);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void timer_Tick(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void Winform_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 	}
 	};
 }

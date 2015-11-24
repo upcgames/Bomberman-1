@@ -19,6 +19,8 @@ namespace Bomberman
 			Winform::winform->KeyDown += escena->onKeyDown;
 		if (escena->onTimerTick != nullptr)
 			Winform::winform->KeyUp += escena->onKeyUp;
+		if (escena->onMouseClick != nullptr)
+			Winform::winform->MouseClick += escena->onMouseClick;
 	}
 
 	void Escena::DesactivarEscena(Escena^ escena)
@@ -31,6 +33,8 @@ namespace Bomberman
 			Winform::winform->KeyDown -= escena->onKeyDown;
 		if (escena->onTimerTick != nullptr)
 			Winform::winform->KeyUp -= escena->onKeyUp;
+		if (escena->onMouseClick != nullptr)
+			Winform::winform->MouseClick -= escena->onMouseClick;
 
 		escena->dibujado = false;
 	}

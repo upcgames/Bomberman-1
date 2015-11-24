@@ -7,12 +7,38 @@ namespace Bomberman
 		onTimerTick = gcnew EventHandler(this, &Juego::timerTick);
 		onKeyDown = gcnew KeyEventHandler(this, &Juego::teclaDown);
 		onKeyUp = gcnew KeyEventHandler(this, &Juego::teclaUp);
+		onMouseClick = gcnew MouseEventHandler(this, &Juego::mouseClick);
+
+		cheatNpress = false;
 
 		Winform::upecino = gcnew Upecino(gcnew Posicion(0, 0), "Diego");
-		Winform::nivel1 = gcnew Nivel1();
-		Winform::objetos = Winform::nivel1->matrizObjetos;
 		Winform::bombas = gcnew ArrBombas();
-		Winform::malignos = Winform::nivel1->arregloMalignos;
+		PrepararNivel(1);		
+	}
+
+	void Juego::PrepararNivel(int pNivel)
+	{
+		if (pNivel == 1)
+		{
+			Winform::nivel1 = gcnew Nivel1();
+			Winform::objetos = Winform::nivel1->matrizObjetos;
+			Winform::malignos = Winform::nivel1->arregloMalignos;
+		}
+		else if (pNivel == 2)
+		{
+			Winform::nivel2 = gcnew Nivel2();
+			Winform::objetos = Winform::nivel2->matrizObjetos;
+			Winform::malignos = Winform::nivel2->arregloMalignos;
+		}
+
+		Winform::bombas->LimpiarArreglo();
+		Winform::winform->upecino->indiceSprite = 0;
+		Winform::winform->upecino->radioExplosion = 1;
+		Winform::winform->upecino->direccion = Direcciones::Abajo;
+		Winform::winform->upecino->estado = Estados::Idle;
+		Winform::winform->upecino->moviendose = false;
+		Winform::winform->upecino->posicion->ToZero();
+		Portal::visible = false;
 	}
 
 	void Juego::timerTick(System::Object^  sender, System::EventArgs^  e)
@@ -63,6 +89,32 @@ namespace Bomberman
 				DesactivarEscena(this);
 				ActivarEscena(Winform::inicio);
 			}
+			else if (e->KeyCode == Keys::N)
+			{
+				cheatNpress = true;
+			}
+			else if (e->KeyCode == Keys::C)
+			{
+				if (cheatNpress)
+				{
+					Winform::upecino->estado = Celebrando;
+					Winform::upecino->indiceSprite = -1;
+				}
+			}
+			else if (e->KeyCode == Keys::D1)
+			{
+				if (cheatNpress)
+				{
+					PrepararNivel(1);
+				}
+			}
+			else if (e->KeyCode == Keys::D2)
+			{
+				if (cheatNpress)
+				{
+					PrepararNivel(2);
+				}
+			}
 		}
 	}
 
@@ -76,5 +128,12 @@ namespace Bomberman
 			Winform::upecino->Detener();
 		else if (e->KeyCode == Keys::D && Winform::upecino->direccion == Derecha)
 			Winform::upecino->Detener();
+		if (e->KeyCode == Keys::N && cheatNpress)
+			cheatNpress = false;
+	}
+
+	void Juego::mouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e)
+	{
+		Winform::bombas->AgregarBomba(gcnew Bomba(gcnew Posicion(e->X - 32, e->Y - 32)));
 	}
 }

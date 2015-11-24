@@ -29,7 +29,7 @@ namespace Bomberman
 		else if (direccion == Derecha)
 			subIndice = 3;
 
-		if (moviendose)
+		if (moviendose && estado == Idle || estado == Fantasma || estado == Inmortal)
 			Avanzar(direccion);
 
 		if (estado == Muriendo)
@@ -43,6 +43,22 @@ namespace Bomberman
 				Escena::ActivarEscena(Winform::inicio);
 				Escena::DesactivarEscena(Winform::juego);
 				return;
+			}
+		}
+		else if(estado == Celebrando)
+		{
+			indiceSprite++;
+			subIndice = 4;
+
+			if (indiceSprite == 16)//termina animacion de celebracón
+			{
+				if (Winform::malignos->malignosRestantes == 0)
+				{
+					Portal::visible = true;
+				}
+					estado = Idle;
+					indiceSprite = -1;
+					return;
 			}
 		}
 		else if (estado == Inmortal)
@@ -59,7 +75,7 @@ namespace Bomberman
 	}
 	void Upecino::PierdeUnaVida()
 	{
-		if (estado == Idle || estado == Fantasma)
+		if (estado == Idle || estado == Fantasma || estado == Celebrando)
 		{
 			if (vida == 0)
 			{
@@ -155,13 +171,27 @@ namespace Bomberman
 					Winform::upecino->vida += 1;
 
 				Winform::objetos->matriz[objeto->posicion->x / 64, objeto->posicion->y / 64] = gcnew Piso(objeto->posicion);
+				posicion->Aumentar(direccion, velocidad);
+				return;
 			}
-
-			posicion->Aumentar(direccion, velocidad);
-			return;
+			if (objeto->tipo == oPortal && dynamic_cast<Portal^>(objeto)->visible)
+			{
+				Escena::DesactivarEscena(Winform::juego);
+				Escena::ActivarEscena(Winform::inicio);
+				posicion->Aumentar(direccion, velocidad);
+				return;
+			}
+			if (objeto->tipo == oPortal && !(dynamic_cast<Portal^>(objeto)->visible))
+			{
+				posicion->Aumentar(direccion, velocidad);
+				return;
+			}
+			if (objeto->tipo == oPiso)
+			{
+				posicion->Aumentar(direccion, velocidad);
+				return;
+			}
 		}
-		
-
 	}
 
 	void Upecino::Detener()

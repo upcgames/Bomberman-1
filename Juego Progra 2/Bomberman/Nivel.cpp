@@ -16,6 +16,8 @@ namespace Bomberman
 					dynamic_cast<Caja^>(Winform::objetos->matriz[x, y])->MostrarSprite(graphics);
 				else if (Winform::objetos->matriz[x, y]->tipo == oItem)
 					dynamic_cast<Item^>(Winform::objetos->matriz[x, y])->MostrarSprite(graphics);
+				else if (Winform::objetos->matriz[x, y]->tipo == oPortal)
+					dynamic_cast<Portal^>(Winform::objetos->matriz[x, y])->MostrarSprite(graphics);
 			}
 		}
 	}
@@ -140,5 +142,27 @@ namespace Bomberman
 		return Winform::objetos->matriz[posicion->x / 64, posicion->y / 64];
 		
 	}
+
+	void Nivel::generarMatrizObjetos(Objetos matriz[9][13])
+	{
+		matrizObjetos = gcnew MatrizObjetos();
+		matrizObjetos->matriz = gcnew array<Objeto^, 2>(13, 9);	
+
+		for (int y = 0; y < 9; y++)
+		{
+			for (int  x = 0; x < 13; x++)
+			{
+				if (matriz[y][x] == oPiso)
+					matrizObjetos->matriz[x, y] = gcnew Piso(gcnew Posicion(x * 64, y * 64));
+				else if (matriz[y][x] == oBloque)
+					matrizObjetos->matriz[x, y] = gcnew Bloque(gcnew Posicion(x * 64, y * 64));
+				else if (matriz[y][x] == oCaja)
+					matrizObjetos->matriz[x, y] = gcnew Caja(gcnew Posicion(x * 64, y * 64));
+				else if (matriz[y][x] == oPortal)
+					matrizObjetos->matriz[x, y] = gcnew Portal(gcnew Posicion(x * 64, y * 64));
+			}
+		}
+	}
+
 
 }

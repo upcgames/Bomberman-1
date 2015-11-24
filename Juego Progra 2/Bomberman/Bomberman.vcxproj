@@ -101,14 +101,15 @@
     <ClCompile Include="Maligno4.cpp" />
     <ClCompile Include="MatrizObjetos.cpp" />
     <ClCompile Include="Nivel.cpp" />
-    <ClCompile Include="Nivel1.cpp" />
     <ClCompile Include="Nivel2.cpp" />
+    <ClCompile Include="Nivel1.cpp" />
     <ClCompile Include="Nivel3.cpp" />
     <ClCompile Include="Nivel4.cpp" />
     <ClCompile Include="Nivel5.cpp" />
     <ClCompile Include="Objeto.cpp" />
     <ClCompile Include="Pausa.cpp" />
     <ClCompile Include="Piso.cpp" />
+    <ClCompile Include="Portal.cpp" />
     <ClCompile Include="Upecino.cpp" />
     <ClCompile Include="Figura.cpp" />
     <ClCompile Include="main.cpp" />

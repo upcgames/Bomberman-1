@@ -45,7 +45,15 @@ namespace Bomberman
 				Winform::malignos->malignosRestantes--;
 
 				if (Winform::malignos->malignosRestantes == 0)
-					MessageBox::Show("Ganaste el Nivel");
+				{
+					if (Winform::upecino->estado != Celebrando)
+					{
+						Winform::upecino->estado = Celebrando;
+						Winform::upecino->indiceSprite = -1;
+					}
+	
+				}
+					
 				return;
 			}
 		}

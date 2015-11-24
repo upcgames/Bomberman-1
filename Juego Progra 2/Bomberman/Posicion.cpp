@@ -62,4 +62,10 @@ namespace Bomberman
 
 		return gcnew Posicion(xx, yy);
 	}
+	
+	void Posicion::ToZero()
+	{
+		x = 0;
+		y = 0;
+	}
 }

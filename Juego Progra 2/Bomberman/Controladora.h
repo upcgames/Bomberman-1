@@ -12,7 +12,7 @@ namespace Bomberman
 	public enum Estados { Idle, Inmortal, Fantasma, Muriendo, Celebrando };
 	public enum Direcciones { Arriba, Abajo, Izquierda, Derecha };
 	public enum Malignos { m1, m2, m3, m4 };
-	public enum Objetos {oPiso, oBloque, oBomba, oCaja, oItem};
+	public enum Objetos {oPiso, oBloque, oBomba, oCaja, oItem, oPortal};
 	public enum Items { Cura, Powerade };
 
 	public ref class Posicion
@@ -25,6 +25,7 @@ namespace Bomberman
 		bool EsIgualA(Posicion^ p);
 		void Igualar(Posicion^ p);                                                                                                                                                                                                                                                                                                                                                                        
 		void Aumentar(Direcciones direccion, int velocidad);
+		void ToZero();
 		Posicion^ getIncrementada(Direcciones direccion, int velocidad);
 	};
 
@@ -164,6 +165,14 @@ namespace Bomberman
 		void MostrarSprite(Graphics^ graphics);
 	};
 
+	public ref class Portal : public Objeto
+	{
+	public:
+		static bool visible;
+		Portal(Posicion^ p);
+		void MostrarSprite(Graphics^ graphics);
+	};
+
 	public ref class MatrizObjetos
 	{
 	public:
@@ -200,6 +209,7 @@ namespace Bomberman
 	public:
 		MatrizObjetos^ matrizObjetos;
 		ArrMalignos^ arregloMalignos;
+		void generarMatrizObjetos(Objetos matriz[9][13]);
 		static void MostrarNivel(Graphics^ graphics);
 		static Objeto^ getObjetoColisionante(Direcciones direccion, int velocidad);
 		static Objeto^ getContenidoCaja(Posicion^ p);
@@ -221,6 +231,7 @@ namespace Bomberman
 		BufferedGraphics^ buffer;
 		KeyEventHandler^ onKeyDown;
 		KeyEventHandler^ onKeyUp;
+		MouseEventHandler^ onMouseClick;
 		EventHandler^ onTimerTick;
 		Escena();
 		static void ActivarEscena(Escena^ escena);
@@ -247,6 +258,10 @@ namespace Bomberman
 	{
 	public:
 		Juego();
+		bool cheatNpress;
+		int nivel;
+		static void PrepararNivel(int pNivel);
+		void mouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e);
 		void timerTick(System::Object^  sender, System::EventArgs^  e);
 		void teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
 		void teclaUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);

@@ -105,12 +105,6 @@
     <ClCompile Include="Nivel3.cpp">
       <Filter>Source Files\Niveles</Filter>
     </ClCompile>
-    <ClCompile Include="Nivel1.cpp">
-      <Filter>Source Files\Niveles</Filter>
-    </ClCompile>
-    <ClCompile Include="Nivel2.cpp">
-      <Filter>Source Files\Niveles</Filter>
-    </ClCompile>
     <ClCompile Include="Nivel4.cpp">
       <Filter>Source Files\Niveles</Filter>
     </ClCompile>
@@ -146,6 +140,15 @@
     </ClCompile>
     <ClCompile Include="GameOver.cpp">
       <Filter>Source Files\Escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="Portal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Nivel2.cpp">
+      <Filter>Source Files\Niveles</Filter>
+    </ClCompile>
+    <ClCompile Include="Nivel1.cpp">
+      <Filter>Source Files\Niveles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
