@@ -41,12 +41,8 @@ namespace Bomberman
 		
 		Winform(void);
 		~Winform();
-	public: System::Windows::Forms::Timer^  timer;
+	public: static System::Windows::Forms::Timer^  timer;
 	private: System::ComponentModel::IContainer^  components;
-	public:
-	public:
-
-
 
 #pragma region Windows Form Designer generated code
 

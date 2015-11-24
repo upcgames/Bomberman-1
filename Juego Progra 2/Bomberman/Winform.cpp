@@ -14,6 +14,7 @@ namespace Bomberman
 
 		introduccion = gcnew Introduccion();
 		inicio = gcnew Inicio();
+		juego = gcnew Juego();
 		instrucciones = gcnew Instrucciones();
 		pausa = gcnew Pausa();
 		youWin = gcnew YouWin();

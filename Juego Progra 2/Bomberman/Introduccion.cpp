@@ -14,8 +14,7 @@ namespace Bomberman
 		{
 			if (!dibujado)
 			{
-				buffer->Graphics->Clear(Color::SkyBlue);
-				buffer->Graphics->DrawString("Introduccion", gcnew Font("Arial", 16), gcnew SolidBrush(Color::White), Point(350, 300));
+				buffer->Graphics->DrawImage(Imagenes::Introducion, Rectangle(0, 0, 832, 577));
 				buffer->Render(Winform::graphics);
 				dibujado = true;
 			}

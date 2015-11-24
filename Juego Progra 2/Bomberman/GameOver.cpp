@@ -14,8 +14,7 @@ namespace Bomberman
 		{
 			if (!dibujado)
 			{
-				buffer->Graphics->Clear(Color::MediumSeaGreen);
-				buffer->Graphics->DrawString("GameOver", gcnew Font("Arial", 16), gcnew SolidBrush(Color::White), Point(350, 300));
+				buffer->Graphics->DrawImage(Imagenes::GameOver, Rectangle(0, 0, 832, 577));
 				buffer->Render(Winform::graphics);
 				dibujado = true;
 			}

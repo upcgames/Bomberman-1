@@ -13,8 +13,7 @@ namespace Bomberman
 	{
 		if (activo)
 		{
-			buffer->Graphics->Clear(Color::Crimson);
-			buffer->Graphics->DrawString(opcion, gcnew Font("Arial", 16), gcnew SolidBrush(Color::White), Point(350, 300));
+			buffer->Graphics->DrawImage(Imagenes::Pausa, Rectangle(0, 0, 832, 577));
 			buffer->Render(Winform::graphics);
 			dibujado = true;
 		}
@@ -51,13 +50,13 @@ namespace Bomberman
 				}
 				else if (opcion == "Bomberman")
 				{
-					Winform::upecino->imagen = Imagenes::spriteBomberman;
+					Winform::upecino->imagen = Imagenes::BombermanSprite;
 					DesactivarEscena(this);
 					ActivarEscena(Winform::juego);
 				}
 				else if (opcion == "Bomberdog")
 				{
-					Winform::upecino->imagen = Imagenes::spriteBomberdog;
+					Winform::upecino->imagen = Imagenes::BomberdogSprite;
 					DesactivarEscena(this);
 					ActivarEscena(Winform::juego);
 				}

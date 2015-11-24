@@ -324,15 +324,28 @@ namespace Bomberman
 	{
 	public:
 		Imagenes();
-		static Image^ spriteBomberman;
-		static Image^ spriteBomberdog;
+		static Image^ BombermanSprite;
+		static Image^ BomberdogSprite;
 		static Image^ spritePirateBomberman;
 
-		static Image^ spriteNinjaBomberman;
-		static Image^ srpitePlunderBomberman;
-		static Image^ srpiteTerroin;
-		static Image^ srpiteCapedBomberman;
+		static Image^ NinjaBombermanSprite;
+		static Image^ PlunderBombermanSprite;
+		static Image^ TerroinSprite;
+		static Image^ CapedBombermanSprite;
 
-		static Image^ spriteBomba;
+		static Image^ BombasSprite;
+
+		static Image^ Introducion;
+		static Image^ Inicio;
+		static Image^ Instrucciones;
+		static Image^ Juego;
+		static Image^ Pausa;
+		static Image^ YouWin;
+		static Image^ Congratulations;
+		static Image^ GameOver;
+		static Image^ Creditos;
+		static Image^ oldRanking;
+		static Image^ oldInstrucciones;
+
 	};
 }

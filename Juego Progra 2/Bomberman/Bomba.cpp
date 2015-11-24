@@ -9,7 +9,7 @@ namespace Bomberman
 		tipo = oBomba;
 		ancho = 64;
 		alto = 64;
-		imagen = Imagenes::spriteBomba;
+		imagen = Imagenes::BombasSprite;
 		visible = true;
 		indiceSprite = 0;
 		tiempo = 80;
