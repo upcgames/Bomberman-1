@@ -320,4 +320,19 @@ namespace Bomberman
 		void teclaUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
 	};
 
+	public ref class Imagenes
+	{
+	public:
+		Imagenes();
+		static Image^ spriteBomberman;
+		static Image^ spriteBomberdog;
+		static Image^ spritePirateBomberman;
+
+		static Image^ spriteNinjaBomberman;
+		static Image^ srpitePlunderBomberman;
+		static Image^ srpiteTerroin;
+		static Image^ srpiteCapedBomberman;
+
+		static Image^ spriteBomba;
+	};
 }

@@ -7,6 +7,7 @@ namespace Bomberman
 		InitializeComponent();
 		winform = this;
 
+		imagenes = gcnew Imagenes();
 		graphics = this->CreateGraphics();
 		context = BufferedGraphicsManager::Current;	
 		aleatorio = gcnew Random();

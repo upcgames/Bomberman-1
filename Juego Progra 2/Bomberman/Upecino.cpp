@@ -4,7 +4,7 @@ namespace Bomberman
 {
 	Upecino::Upecino(Posicion^ p, String^ pNombre)
 	{
-		imagen = Image::FromFile("Bomberman1.png");
+		imagen = Imagenes::spriteBomberman;
 		indiceSprite = 0;
 		radioExplosion = 1;
 		direccion = Direcciones::Abajo;

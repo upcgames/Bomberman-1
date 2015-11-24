@@ -14,6 +14,7 @@ namespace Bomberman
 	{
 	public:
 		static Winform^ winform;
+		static Imagenes^ imagenes;
 		static Graphics^ graphics;
 		static BufferedGraphicsContext^ context;
 		static Random^ aleatorio;
@@ -65,7 +66,8 @@ namespace Bomberman
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(960, 640);
+			this->ClientSize = System::Drawing::Size(832, 576);
+			this->ControlBox = false;
 			this->Name = L"Winform";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Winform";

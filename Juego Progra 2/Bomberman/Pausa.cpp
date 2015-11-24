@@ -51,11 +51,15 @@ namespace Bomberman
 				}
 				else if (opcion == "Bomberman")
 				{
-
+					Winform::upecino->imagen = Imagenes::spriteBomberman;
+					DesactivarEscena(this);
+					ActivarEscena(Winform::juego);
 				}
 				else if (opcion == "Bomberdog")
 				{
-
+					Winform::upecino->imagen = Imagenes::spriteBomberdog;
+					DesactivarEscena(this);
+					ActivarEscena(Winform::juego);
 				}
 				else if (opcion == "PirateBomberman")
 				{

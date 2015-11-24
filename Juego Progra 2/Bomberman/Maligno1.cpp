@@ -4,7 +4,7 @@ namespace Bomberman
 {
 	Maligno1::Maligno1(Posicion^ p, int pVida)
 	{
-		imagen = Image::FromFile("Maligno1.png");
+		imagen = Imagenes::spriteNinjaBomberman;
 		
 		sentidoDeGiro = (Winform::aleatorio->Next(2)) == 0? true: false;
 		EsAtacado += gcnew Action(this, &Maligno1::Muere);
@@ -51,9 +51,7 @@ namespace Bomberman
 						Winform::upecino->estado = Celebrando;
 						Winform::upecino->indiceSprite = -1;
 					}
-	
-				}
-					
+				}	
 				return;
 			}
 		}
