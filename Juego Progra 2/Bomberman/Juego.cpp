@@ -89,6 +89,32 @@ namespace Bomberman
 					Nivel::PasarANivel(2);
 				}
 			}
+			else if (e->KeyCode == Keys::D3)
+			{
+				if (cheatNpress)
+				{
+					Nivel::PasarANivel(3);
+				}
+			}
+			else if (e->KeyCode == Keys::D4)
+			{
+				if (cheatNpress)
+				{
+					Nivel::PasarANivel(4);
+				}
+			}
+			else if (e->KeyCode == Keys::D5)
+			{
+				if (cheatNpress)
+				{
+					Nivel::PasarANivel(5);
+				}
+			}
+			else if (e->KeyCode == Keys::P)
+			{
+				DesactivarEscena(this);
+				ActivarEscena(Winform::pausa);
+			}
 		}
 	}
 
@@ -115,7 +141,7 @@ namespace Bomberman
 	void Juego::GanarJuego()
 	{
 		Escena::DesactivarEscena(Winform::juego);
-		Escena::ActivarEscena(Winform::youWin);
+		Escena::ActivarEscena(Winform::congratulations);
 	}
 
 	void Juego::PerderJuego()

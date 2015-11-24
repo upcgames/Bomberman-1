@@ -30,6 +30,7 @@ namespace Bomberman
 			{
 				DesactivarEscena(this);
 				ActivarEscena(Winform::juego);
+				Nivel::PasarANivel(Winform::juego->nivel + 1);
 			}
 
 		}

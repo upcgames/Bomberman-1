@@ -251,6 +251,7 @@ namespace Bomberman
 	public ref class Inicio : public Escena
 	{
 	public:
+		String^ opcion;
 		Inicio();
 		void timerTick(System::Object^  sender, System::EventArgs^  e);
 		void teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
@@ -267,6 +268,7 @@ namespace Bomberman
 	public ref class Pausa : public Escena
 	{
 	public:
+		String^ opcion;
 		Pausa();
 		void timerTick(System::Object^  sender, System::EventArgs^  e);
 		void teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);

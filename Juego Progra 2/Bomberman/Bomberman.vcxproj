@@ -89,6 +89,7 @@
     <ClCompile Include="Creditos.cpp" />
     <ClCompile Include="Escena.cpp" />
     <ClCompile Include="GameOver.cpp" />
+    <ClCompile Include="Imagenes.cpp" />
     <ClCompile Include="Instrucciones.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="Inicio.cpp" />
@@ -119,7 +120,7 @@
     <ClCompile Include="YouWin.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Controladora.h" />
+    <ClInclude Include="Directorio.h" />
     <ClInclude Include="WinForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

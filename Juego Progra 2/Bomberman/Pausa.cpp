@@ -6,19 +6,17 @@ namespace Bomberman
 	{
 		onTimerTick = gcnew EventHandler(this, &Pausa::timerTick);
 		onKeyDown = gcnew KeyEventHandler(this, &Pausa::teclaDown);
+		opcion = "Continuar";
 	}
 
 	void Pausa::timerTick(System::Object^  sender, System::EventArgs^  e)
 	{
 		if (activo)
 		{
-			if (!dibujado)
-			{
-				buffer->Graphics->Clear(Color::Crimson);
-				buffer->Graphics->DrawString("Pausa", gcnew Font("Arial", 16), gcnew SolidBrush(Color::White), Point(350, 300));
-				buffer->Render(Winform::graphics);
-				dibujado = true;
-			}
+			buffer->Graphics->Clear(Color::Crimson);
+			buffer->Graphics->DrawString(opcion, gcnew Font("Arial", 16), gcnew SolidBrush(Color::White), Point(350, 300));
+			buffer->Render(Winform::graphics);
+			dibujado = true;
 		}
 	}
 
@@ -28,10 +26,102 @@ namespace Bomberman
 		{
 			if (e->KeyCode == Keys::Enter)
 			{
-				DesactivarEscena(this);
-				ActivarEscena(Winform::youWin);
-			}
+				if (opcion == "Continuar")
+				{
+					DesactivarEscena(this);
+					ActivarEscena(Winform::juego);
+				}
+				else if (opcion == "Reiniciar")
+				{
+					opcion = "Continuar";
+					DesactivarEscena(this);
+					ActivarEscena(Winform::juego);
+					Nivel::PasarANivel(Winform::juego->nivel);
+				}
+				else if (opcion == "Instrucciones")
+				{
+					DesactivarEscena(this);
+					ActivarEscena(Winform::instrucciones);
+				}
+				else if (opcion == "Salir")
+				{
+					opcion = "Continuar";
+					DesactivarEscena(this);
+					ActivarEscena(Winform::inicio);
+				}
+				else if (opcion == "Bomberman")
+				{
 
+				}
+				else if (opcion == "Bomberdog")
+				{
+
+				}
+				else if (opcion == "PirateBomberman")
+				{
+
+				}
+			}
+			else if (e->KeyCode == Keys::Up)
+			{
+				if (opcion == "Reiniciar")
+				{
+					opcion = "Continuar";
+				}
+				else if (opcion == "Instrucciones")
+				{
+					opcion = "Reiniciar";
+				}
+				else if (opcion == "Salir")
+				{
+					opcion = "Instrucciones";
+				}
+				else if (opcion == "Bomberman" || opcion == "Bomberdog" || opcion == "PirateBomberman")
+				{
+					opcion = "Salir";
+				}
+			}
+			else if (e->KeyCode == Keys::Down)
+			{
+				if (opcion == "Continuar")
+				{
+					opcion = "Reiniciar";
+				}
+				else if (opcion == "Reiniciar")
+				{
+					opcion = "Instrucciones";
+				}
+				else if (opcion == "Instrucciones")
+				{
+					opcion = "Salir";
+				}
+				else if (opcion == "Salir")
+				{
+					opcion = "Bomberdog";
+				}
+			}
+			else if (e->KeyCode == Keys::Left)
+			{
+				if (opcion == "Bomberdog")
+				{
+					opcion = "Bomberman";
+				}
+				else if (opcion == "PirateBomberman")
+				{
+					opcion = "Bomberdog";
+				}
+			}
+			else if (e->KeyCode == Keys::Right)
+			{
+				if (opcion == "Bomberman")
+				{
+					opcion = "Bomberdog";
+				}
+				else if (opcion == "Bomberdog")
+				{
+					opcion = "PirateBomberman";
+				}
+			}
 		}
 	}
 }

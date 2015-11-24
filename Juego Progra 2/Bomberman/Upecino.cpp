@@ -39,8 +39,7 @@ namespace Bomberman
 
 			if (indiceSprite == 16)//termina animacion de muerte
 			{
-				Threading::Thread::Sleep(2000);
-				Escena::ActivarEscena(Winform::inicio);
+				Escena::ActivarEscena(Winform::gameOver);
 				Escena::DesactivarEscena(Winform::juego);
 				return;
 			}
@@ -205,7 +204,8 @@ namespace Bomberman
 		}
 		else
 		{
-			Nivel::PasarANivel(Winform::juego->nivel + 1);
+			Escena::DesactivarEscena(Winform::juego);
+			Escena::ActivarEscena(Winform::youWin);	
 		}
 
 	}

@@ -14,7 +14,7 @@ namespace Bomberman
 		{
 			if (!dibujado)
 			{
-				buffer->Graphics->Clear(Color::Azure);
+				buffer->Graphics->Clear(Color::LightGoldenrodYellow);
 				buffer->Graphics->DrawString("Creditos", gcnew Font("Arial", 16), gcnew SolidBrush(Color::White), Point(350, 300));
 				buffer->Render(Winform::graphics);
 				dibujado = true;

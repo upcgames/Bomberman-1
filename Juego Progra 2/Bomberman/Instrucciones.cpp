@@ -29,7 +29,10 @@ namespace Bomberman
 			if (e->KeyCode == Keys::Enter)
 			{
 				DesactivarEscena(this);
-				ActivarEscena(Winform::juego);
+				if (Winform::pausa->opcion == "Instrucciones")
+					ActivarEscena(Winform::pausa);
+				else
+					ActivarEscena(Winform::inicio);
 			}
 
 		}

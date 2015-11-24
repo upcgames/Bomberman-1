@@ -147,12 +147,15 @@
     <ClCompile Include="Portal.cpp">
       <Filter>Source Files\Objetos</Filter>
     </ClCompile>
+    <ClCompile Include="Imagenes.cpp">
+      <Filter>Source Files\Clases Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Controladora.h">
+    <ClInclude Include="WinForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WinForm.h">
+    <ClInclude Include="Directorio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

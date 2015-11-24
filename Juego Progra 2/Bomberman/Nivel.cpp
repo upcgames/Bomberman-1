@@ -180,6 +180,12 @@ namespace Bomberman
 			Winform::objetos = Winform::nivel2->matrizObjetos;
 			Winform::malignos = Winform::nivel2->arregloMalignos;
 		}
+		else if (pNivel == 5)
+		{
+			Winform::nivel5 = gcnew Nivel5();
+			Winform::objetos = Winform::nivel5->matrizObjetos;
+			Winform::malignos = Winform::nivel5->arregloMalignos;
+		}
 
 		Winform::bombas->LimpiarArreglo();
 		Winform::winform->upecino->indiceSprite = 0;

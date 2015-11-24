@@ -1,5 +1,5 @@
 #pragma once
-#include "Controladora.h"
+#include "Directorio.h"
 
 using namespace System;
 using namespace System::ComponentModel;
