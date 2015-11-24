@@ -21,9 +21,16 @@ namespace Bomberman
 		static MatrizObjetos^ objetos;
 		static ArrBombas^ bombas;
 		static ArrMalignos^ malignos;
+
 		static Introduccion^ introduccion;
 		static Inicio^ inicio;
+		static Instrucciones^ instrucciones;
 		static Juego^ juego;
+		static Pausa^ pausa;
+		static YouWin^ youWin;
+		static Congratulations^ congratulations;
+		static GameOver^ gameOver;
+		static Creditos^ creditos;
 
 		static Nivel1^ nivel1;
 		static Nivel2^ nivel2;

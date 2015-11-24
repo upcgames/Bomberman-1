@@ -116,7 +116,6 @@
     <ClCompile Include="Posicion.cpp" />
     <ClCompile Include="Vivo.cpp" />
     <ClCompile Include="Winform.cpp" />
-    <ClCompile Include="YouLose.cpp" />
     <ClCompile Include="YouWin.cpp" />
   </ItemGroup>
   <ItemGroup>

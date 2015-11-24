@@ -12,33 +12,7 @@ namespace Bomberman
 		cheatNpress = false;
 
 		Winform::upecino = gcnew Upecino(gcnew Posicion(0, 0), "Diego");
-		Winform::bombas = gcnew ArrBombas();
-		PrepararNivel(1);		
-	}
-
-	void Juego::PrepararNivel(int pNivel)
-	{
-		if (pNivel == 1)
-		{
-			Winform::nivel1 = gcnew Nivel1();
-			Winform::objetos = Winform::nivel1->matrizObjetos;
-			Winform::malignos = Winform::nivel1->arregloMalignos;
-		}
-		else if (pNivel == 2)
-		{
-			Winform::nivel2 = gcnew Nivel2();
-			Winform::objetos = Winform::nivel2->matrizObjetos;
-			Winform::malignos = Winform::nivel2->arregloMalignos;
-		}
-
-		Winform::bombas->LimpiarArreglo();
-		Winform::winform->upecino->indiceSprite = 0;
-		Winform::winform->upecino->radioExplosion = 1;
-		Winform::winform->upecino->direccion = Direcciones::Abajo;
-		Winform::winform->upecino->estado = Estados::Idle;
-		Winform::winform->upecino->moviendose = false;
-		Winform::winform->upecino->posicion->ToZero();
-		Portal::visible = false;
+		Winform::bombas = gcnew ArrBombas();		
 	}
 
 	void Juego::timerTick(System::Object^  sender, System::EventArgs^  e)
@@ -87,7 +61,7 @@ namespace Bomberman
 			else if (e->KeyCode == Keys::Enter)
 			{
 				DesactivarEscena(this);
-				ActivarEscena(Winform::inicio);
+				ActivarEscena(Winform::pausa);
 			}
 			else if (e->KeyCode == Keys::N)
 			{
@@ -105,14 +79,14 @@ namespace Bomberman
 			{
 				if (cheatNpress)
 				{
-					PrepararNivel(1);
+					Nivel::PasarANivel(1);
 				}
 			}
 			else if (e->KeyCode == Keys::D2)
 			{
 				if (cheatNpress)
 				{
-					PrepararNivel(2);
+					Nivel::PasarANivel(2);
 				}
 			}
 		}
@@ -136,4 +110,18 @@ namespace Bomberman
 	{
 		Winform::bombas->AgregarBomba(gcnew Bomba(gcnew Posicion(e->X - 32, e->Y - 32)));
 	}
+
+
+	void Juego::GanarJuego()
+	{
+		Escena::DesactivarEscena(Winform::juego);
+		Escena::ActivarEscena(Winform::youWin);
+	}
+
+	void Juego::PerderJuego()
+	{
+		Escena::DesactivarEscena(Winform::juego);
+		Escena::ActivarEscena(Winform::gameOver);
+	}
 }
+

@@ -5,13 +5,22 @@ namespace Bomberman
 	Winform::Winform(void)
 	{
 		InitializeComponent();
-		graphics = this->CreateGraphics();
-		context = BufferedGraphicsManager::Current;
 		winform = this;
+
+		graphics = this->CreateGraphics();
+		context = BufferedGraphicsManager::Current;	
 		aleatorio = gcnew Random();
+
 		introduccion = gcnew Introduccion();
 		inicio = gcnew Inicio();
-		juego = gcnew Juego();
+		instrucciones = gcnew Instrucciones();
+		pausa = gcnew Pausa();
+		youWin = gcnew YouWin();
+		congratulations = gcnew Congratulations();
+		gameOver = gcnew GameOver();
+		creditos = gcnew Creditos();
+
+		//Empezar el juego
 		Escena::ActivarEscena(introduccion);
 	}
 

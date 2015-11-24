@@ -60,6 +60,7 @@ namespace Bomberman
 		static String^ nombre;
 		static int radioExplosion;
 		static bool moviendose;
+		static void TocaElPortal();
 		Upecino(Posicion^ p, String^ pNombre);
 		void MostrarUpecino(Graphics^ graphics);
 		void PierdeUnaVida();
@@ -210,6 +211,7 @@ namespace Bomberman
 		MatrizObjetos^ matrizObjetos;
 		ArrMalignos^ arregloMalignos;
 		void generarMatrizObjetos(Objetos matriz[9][13]);
+		static void PasarANivel(int pNivel);
 		static void MostrarNivel(Graphics^ graphics);
 		static Objeto^ getObjetoColisionante(Direcciones direccion, int velocidad);
 		static Objeto^ getContenidoCaja(Posicion^ p);
@@ -254,13 +256,62 @@ namespace Bomberman
 		void teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
 	};
 
+	public ref class Instrucciones : public Escena
+	{
+	public:
+		Instrucciones();
+		void timerTick(System::Object^  sender, System::EventArgs^  e);
+		void teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
+	};
+
+	public ref class Pausa : public Escena
+	{
+	public:
+		Pausa();
+		void timerTick(System::Object^  sender, System::EventArgs^  e);
+		void teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
+	};
+
+	public ref class YouWin : public Escena
+	{
+	public:
+		YouWin();
+		void timerTick(System::Object^  sender, System::EventArgs^  e);
+		void teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
+	};
+
+	public ref class GameOver : public Escena
+	{
+	public:
+		GameOver();
+		void timerTick(System::Object^  sender, System::EventArgs^  e);
+		void teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
+	};
+
+	public ref class Congratulations : public Escena
+	{
+	public:
+		Congratulations();
+		void timerTick(System::Object^  sender, System::EventArgs^  e);
+		void teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
+	};
+
+	public ref class Creditos : public Escena
+	{
+	public:
+		Creditos();
+		void timerTick(System::Object^  sender, System::EventArgs^  e);
+		void teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
+	};
+
 	public ref class Juego : public Escena
 	{
 	public:
 		Juego();
 		bool cheatNpress;
 		int nivel;
-		static void PrepararNivel(int pNivel);
+		static void GanarJuego();
+		static void PerderJuego();
 		void mouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e);
 		void timerTick(System::Object^  sender, System::EventArgs^  e);
 		void teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);

@@ -29,7 +29,7 @@ namespace Bomberman
 		else if (direccion == Derecha)
 			subIndice = 3;
 
-		if (moviendose && estado == Idle || estado == Fantasma || estado == Inmortal)
+		if (moviendose && (estado == Idle || estado == Fantasma || estado == Inmortal))
 			Avanzar(direccion);
 
 		if (estado == Muriendo)
@@ -57,7 +57,7 @@ namespace Bomberman
 					Portal::visible = true;
 				}
 					estado = Idle;
-					indiceSprite = -1;
+					indiceSprite = 0;
 					return;
 			}
 		}
@@ -176,10 +176,7 @@ namespace Bomberman
 			}
 			if (objeto->tipo == oPortal && dynamic_cast<Portal^>(objeto)->visible)
 			{
-				Escena::DesactivarEscena(Winform::juego);
-				Escena::ActivarEscena(Winform::inicio);
-				posicion->Aumentar(direccion, velocidad);
-				return;
+				Upecino::TocaElPortal();
 			}
 			if (objeto->tipo == oPortal && !(dynamic_cast<Portal^>(objeto)->visible))
 			{
@@ -198,6 +195,19 @@ namespace Bomberman
 	{
 		indiceSprite = 0;
 		moviendose = false;
+	}
+
+	void Upecino::TocaElPortal()
+	{
+		if (Winform::juego->nivel == 5)
+		{
+			Juego::GanarJuego();
+		}
+		else
+		{
+			Nivel::PasarANivel(Winform::juego->nivel + 1);
+		}
+
 	}
 }
 

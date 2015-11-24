@@ -30,7 +30,7 @@ namespace Bomberman
 
 		if (direccion == Arriba)
 		{
-			if (y == 0)
+			if (y <= 0)
 				return gcnew Bloque(gcnew Posicion(x, -1));
 
 			if (x % 64 == 0)
@@ -52,7 +52,7 @@ namespace Bomberman
 		}
 		else if (direccion == Abajo)
 		{
-			if (y == 512)
+			if (y >= 512)
 				return gcnew Bloque(gcnew Posicion(x, 513));
 
 			if (x % 64 == 0)
@@ -74,7 +74,7 @@ namespace Bomberman
 		}
 		else if (direccion == Izquierda)
 		{
-			if (x == 0)
+			if (x <= 0)
 				return gcnew Bloque(gcnew Posicion(-1, y));
 
 			if (y % 64 == 0)
@@ -96,7 +96,7 @@ namespace Bomberman
 		}
 		else if (direccion == Derecha)
 		{
-			if (x == 768)
+			if (x >= 768)
 				return gcnew Bloque(gcnew Posicion(769, y));
 
 			if (y % 64 == 0)
@@ -164,5 +164,31 @@ namespace Bomberman
 		}
 	}
 
+	void Nivel::PasarANivel(int pNivel)
+	{
+		Winform::juego->nivel = pNivel;
+
+		if (pNivel == 1)
+		{
+			Winform::nivel1 = gcnew Nivel1();
+			Winform::objetos = Winform::nivel1->matrizObjetos;
+			Winform::malignos = Winform::nivel1->arregloMalignos;
+		}
+		else if (pNivel == 2)
+		{
+			Winform::nivel2 = gcnew Nivel2();
+			Winform::objetos = Winform::nivel2->matrizObjetos;
+			Winform::malignos = Winform::nivel2->arregloMalignos;
+		}
+
+		Winform::bombas->LimpiarArreglo();
+		Winform::winform->upecino->indiceSprite = 0;
+		Winform::winform->upecino->radioExplosion = 1;
+		Winform::winform->upecino->direccion = Direcciones::Abajo;
+		Winform::winform->upecino->estado = Estados::Idle;
+		Winform::winform->upecino->moviendose = false;
+		Winform::winform->upecino->posicion->ToZero();
+		Portal::visible = false;
+	}
 
 }

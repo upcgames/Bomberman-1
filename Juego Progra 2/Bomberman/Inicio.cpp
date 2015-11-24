@@ -6,6 +6,7 @@ namespace Bomberman
 	{
 		onTimerTick = gcnew EventHandler(this, &Inicio::timerTick);
 		onKeyDown = gcnew KeyEventHandler(this, &Inicio::teclaDown);
+		Winform::juego = gcnew Juego();
 	}
 
 	void Inicio::timerTick(System::Object^  sender, System::EventArgs^  e)
@@ -30,6 +31,7 @@ namespace Bomberman
 			{
 				DesactivarEscena(this);
 				ActivarEscena(Winform::juego);
+				Nivel::PasarANivel(1);
 			}
 
 		}
