@@ -14,6 +14,22 @@ namespace Bomberman
 		if (activo)
 		{
 			buffer->Graphics->DrawImage(Imagenes::Pausa, Rectangle(0, 0, 832, 577));
+
+			if (opcion == "Continuar")
+				buffer->Graphics->DrawImage(Imagenes::Cursor, Rectangle(128, 128, 64, 64));
+			else if (opcion == "Reiniciar")
+				buffer->Graphics->DrawImage(Imagenes::Cursor, Rectangle(128, 192, 64, 64));
+			else if (opcion == "Instrucciones")
+				buffer->Graphics->DrawImage(Imagenes::Cursor, Rectangle(54, 256, 64, 64));
+			else if (opcion == "Salir")
+				buffer->Graphics->DrawImage(Imagenes::Cursor, Rectangle(256, 320, 64, 64));
+			else if (opcion == "Bomberman")
+				buffer->Graphics->DrawImage(Imagenes::Cursor, Rectangle(0, 448, 64, 64));
+			else if (opcion == "Bomberdog")
+				buffer->Graphics->DrawImage(Imagenes::Cursor, Rectangle(256, 448, 64, 64));
+			else if (opcion == "PirateBomberman")
+				buffer->Graphics->DrawImage(Imagenes::Cursor, Rectangle(512, 448, 64, 64));
+
 			buffer->Render(Winform::graphics);
 			dibujado = true;
 		}

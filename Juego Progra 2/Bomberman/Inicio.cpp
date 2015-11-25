@@ -14,6 +14,16 @@ namespace Bomberman
 		if (activo)
 		{
 			buffer->Graphics->DrawImage(Imagenes::Inicio, Rectangle(0, 0, 832, 577));
+			
+			if (opcion == "Iniciar Juego")
+				buffer->Graphics->DrawImage(Imagenes::Cursor, Rectangle(256, 320, 64, 64));
+			else if (opcion == "Instrucciones")
+				buffer->Graphics->DrawImage(Imagenes::Cursor, Rectangle(128, 384, 64, 64));
+			else if (opcion == "Creditos")
+				buffer->Graphics->DrawImage(Imagenes::Cursor, Rectangle(192, 448, 64, 64));
+			else if (opcion == "Salir")
+				buffer->Graphics->DrawImage(Imagenes::Cursor, Rectangle(256, 512, 64, 64));
+			
 			buffer->Render(Winform::graphics);
 			dibujado = true;
 		}

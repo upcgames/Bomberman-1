@@ -13,7 +13,7 @@ namespace Bomberman
 	public enum Direcciones { Arriba, Abajo, Izquierda, Derecha };
 	public enum Malignos { m1, m2, m3, m4 };
 	public enum Objetos {oPiso, oBloque, oBomba, oCaja, oItem, oPortal};
-	public enum Items { Cura, Powerade };
+	public enum Items { Cura, Powerade, BombaPlus, Pasamuros };
 
 	public ref class Posicion
 	{
@@ -334,6 +334,31 @@ namespace Bomberman
 		static Image^ CapedBombermanSprite;
 
 		static Image^ BombasSprite;
+
+		static Image^ BombaPlus;
+		static Image^ Cura;
+		static Image^ PasaMuros;
+		static Image^ Powerade;
+
+		static Image^ Cursor;
+		static Image^ Portal;
+
+		static Image^ Bloque1;
+		static Image^ Bloque2;
+		static Image^ Bloque3;
+		static Image^ Bloque4;
+		static Image^ Bloque5;
+		static Image^ Caja1;
+		static Image^ Caja2;
+		static Image^ Caja3;
+		static Image^ Caja4;
+		static Image^ Caja5;
+		static Image^ Piso1;
+		static Image^ Piso2;
+		static Image^ Piso3;
+		static Image^ Piso4;
+		static Image^ Piso5;
+
 
 		static Image^ Introducion;
 		static Image^ Inicio;

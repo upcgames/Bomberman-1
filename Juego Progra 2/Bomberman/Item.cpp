@@ -11,8 +11,12 @@ namespace Bomberman
 	void Item::MostrarSprite(Graphics^ graphics)
 	{
 		if (tipoItem == Cura)
-			graphics->FillRectangle(gcnew SolidBrush(Color::Green), Rectangle(posicion->x, posicion->y, 64, 64));
+			graphics->DrawImage(Imagenes::Cura, Rectangle(posicion->x, posicion->y, 64, 64));
 		else if (tipoItem == Powerade)
-			graphics->FillRectangle(gcnew SolidBrush(Color::Yellow), Rectangle(posicion->x, posicion->y, 64, 64));
+			graphics->DrawImage(Imagenes::Powerade, Rectangle(posicion->x, posicion->y, 64, 64));
+		else if (tipoItem == BombaPlus)
+			graphics->DrawImage(Imagenes::BombaPlus, Rectangle(posicion->x, posicion->y, 64, 64));
+		else if (tipoItem == Pasamuros)
+			graphics->DrawImage(Imagenes::PasaMuros, Rectangle(posicion->x, posicion->y, 64, 64));
 	}
 }

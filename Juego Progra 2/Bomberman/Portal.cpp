@@ -11,9 +11,20 @@ namespace Bomberman
 	void Portal::MostrarSprite(Graphics^ graphics)
 	{
 		if (visible)
-			graphics->FillRectangle(gcnew SolidBrush(Color::Purple), Rectangle(posicion->x, posicion->y, 64, 64));
+			graphics->DrawImage(Imagenes::Portal, Rectangle(posicion->x, posicion->y, 64, 64));
 		else
-			graphics->FillRectangle(gcnew SolidBrush(Color::White), Rectangle(posicion->x, posicion->y, 64, 64));
+		{
+			if (Winform::juego->nivel == 1)
+				graphics->DrawImage(Imagenes::Piso1, Rectangle(posicion->x, posicion->y, 64, 64));
+			else if (Winform::juego->nivel == 2)
+				graphics->DrawImage(Imagenes::Piso2, Rectangle(posicion->x, posicion->y, 64, 64));
+			else if (Winform::juego->nivel == 3)
+				graphics->DrawImage(Imagenes::Piso3, Rectangle(posicion->x, posicion->y, 64, 64));
+			else if (Winform::juego->nivel == 4)
+				graphics->DrawImage(Imagenes::Piso4, Rectangle(posicion->x, posicion->y, 64, 64));
+			else if (Winform::juego->nivel == 5)
+				graphics->DrawImage(Imagenes::Piso5, Rectangle(posicion->x, posicion->y, 64, 64));
+		}
 	}
 }
 

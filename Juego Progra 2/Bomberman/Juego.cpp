@@ -69,11 +69,8 @@ namespace Bomberman
 			}
 			else if (e->KeyCode == Keys::C)
 			{
-				if (cheatNpress)
-				{
-					Winform::upecino->estado = Celebrando;
-					Winform::upecino->indiceSprite = -1;
-				}
+				Winform::upecino->estado = Celebrando;
+				Winform::upecino->indiceSprite = -1;
 			}
 			else if (e->KeyCode == Keys::D1)
 			{

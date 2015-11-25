@@ -180,6 +180,18 @@ namespace Bomberman
 			Winform::objetos = Winform::nivel2->matrizObjetos;
 			Winform::malignos = Winform::nivel2->arregloMalignos;
 		}
+		else if (pNivel == 3)
+		{
+			Winform::nivel3 = gcnew Nivel3();
+			Winform::objetos = Winform::nivel3->matrizObjetos;
+			Winform::malignos = Winform::nivel3->arregloMalignos;
+		}
+		else if (pNivel == 4)
+		{
+			Winform::nivel4 = gcnew Nivel4();
+			Winform::objetos = Winform::nivel4->matrizObjetos;
+			Winform::malignos = Winform::nivel4->arregloMalignos;
+		}
 		else if (pNivel == 5)
 		{
 			Winform::nivel5 = gcnew Nivel5();
