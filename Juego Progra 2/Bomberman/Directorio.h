@@ -27,6 +27,7 @@ namespace Bomberman
 		void Igualar(int pX, int pY, int multiplo);
 		void Aumentar(Direcciones direccion, int velocidad);
 		void ToZero();
+		Rectangle getBody(int pAncho, int pAlto);
 		Posicion^ getIncrementada(Direcciones direccion, int velocidad);
 	};
 
@@ -58,14 +59,14 @@ namespace Bomberman
 	public ref class Upecino : Vivo
 	{
 	public:
-		static String^ nombre;
+		static int contadorBombas;
 		static int radioExplosion;
 		static bool moviendose;
 		static void TocaElPortal();
-		Upecino(Posicion^ p, String^ pNombre);
+		Upecino(Posicion^ p);
 		void MostrarUpecino(Graphics^ graphics);
 		void PierdeUnaVida();
-		void CuandoMuere();
+		void AnimacionMuerte();
 		void Avanzar(Direcciones direccion);
 		void Detener();
 	};

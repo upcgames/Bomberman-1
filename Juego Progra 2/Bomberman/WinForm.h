@@ -19,6 +19,7 @@ namespace Bomberman
 		static BufferedGraphicsContext^ context;
 		static Random^ aleatorio;
 		static Upecino^ upecino;
+
 		static MatrizObjetos^ objetos;
 		static ArrBombas^ bombas;
 		static ArrMalignos^ malignos;

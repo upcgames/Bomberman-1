@@ -39,7 +39,7 @@ namespace Bomberman
 	{
 		if (activo && dibujado)
 		{
-			if (e->KeyCode == Keys::Enter)
+			if (e->KeyCode == Keys::Enter || e->KeyCode == Keys::Space)
 			{
 				if (opcion == "Continuar")
 				{
@@ -83,7 +83,7 @@ namespace Bomberman
 					ActivarEscena(Winform::juego);
 				}
 			}
-			else if (e->KeyCode == Keys::Up)
+			else if (e->KeyCode == Keys::Up || e->KeyCode == Keys::W)
 			{
 				if (opcion == "Reiniciar")
 				{
@@ -102,7 +102,7 @@ namespace Bomberman
 					opcion = "Salir";
 				}
 			}
-			else if (e->KeyCode == Keys::Down)
+			else if (e->KeyCode == Keys::Down || e->KeyCode == Keys::S)
 			{
 				if (opcion == "Continuar")
 				{
@@ -121,7 +121,7 @@ namespace Bomberman
 					opcion = "Bomberdog";
 				}
 			}
-			else if (e->KeyCode == Keys::Left)
+			else if (e->KeyCode == Keys::Left || e->KeyCode == Keys::A)
 			{
 				if (opcion == "Bomberdog")
 				{
@@ -132,7 +132,7 @@ namespace Bomberman
 					opcion = "Bomberdog";
 				}
 			}
-			else if (e->KeyCode == Keys::Right)
+			else if (e->KeyCode == Keys::Right || e->KeyCode == Keys::D)
 			{
 				if (opcion == "Bomberman")
 				{

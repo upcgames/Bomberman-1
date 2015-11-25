@@ -14,6 +14,9 @@ namespace Bomberman
 
 	void ArrBombas::AgregarBomba(Bomba^ bomba)
 	{
+		if (Upecino::contadorBombas == cantidad)
+			return;
+
 		array<Bomba^>^ auxiliar;
 
 		if (arreglo == nullptr)

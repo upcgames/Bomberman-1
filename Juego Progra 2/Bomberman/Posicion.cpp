@@ -80,4 +80,9 @@ namespace Bomberman
 		x = 0;
 		y = 0;
 	}
+
+	Rectangle Posicion::getBody(int pAncho, int pAlto)
+	{
+		return Rectangle(x, y, pAncho, pAlto);
+	}
 }

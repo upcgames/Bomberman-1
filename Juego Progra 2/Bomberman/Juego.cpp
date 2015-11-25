@@ -11,7 +11,7 @@ namespace Bomberman
 
 		cheatKey = 'z';
 
-		Winform::upecino = gcnew Upecino(gcnew Posicion(0, 0), "Diego");
+		Winform::upecino = gcnew Upecino(gcnew Posicion(0, 0));
 		Winform::bombas = gcnew ArrBombas();		
 	}
 
@@ -19,8 +19,10 @@ namespace Bomberman
 	{
 		if (activo)
 		{
-			Winform::winform->Text = Winform::upecino->vida.ToString();
-
+			contador++;
+			Winform::winform->Text = "Vida: " + Winform::upecino->vida.ToString() 
+				+ "   Bombas: " + Upecino::contadorBombas.ToString() 
+				+ "   Tiempo: " + (contador/20).ToString();
 			Nivel::MostrarNivel(buffer->Graphics);
 			Winform::bombas->MostrarBombas(buffer->Graphics);
 			Winform::upecino->MostrarUpecino(buffer->Graphics);
@@ -119,6 +121,10 @@ namespace Bomberman
 			{
 				DesactivarEscena(this);
 				ActivarEscena(Winform::pausa);
+			}
+			else if (e->KeyCode == Keys::F)
+			{
+				Winform::upecino->estado = Fantasma;
 			}
 		}
 	}

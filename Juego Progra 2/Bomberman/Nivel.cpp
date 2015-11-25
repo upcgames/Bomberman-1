@@ -125,10 +125,14 @@ namespace Bomberman
 
 		if (random < 40)
 		{
-			if (random < 20)
+			if (random < 5)
 				return gcnew Item(gcnew Posicion(p->x, p->y), Cura);
-			else
+			else if (random < 20)
+				return gcnew Item(gcnew Posicion(p->x, p->y), BombaPlus);
+			else if (random < 30)
 				return gcnew Item(gcnew Posicion(p->x, p->y), Powerade);
+			else
+				return gcnew Item(gcnew Posicion(p->x, p->y), Pasamuros);
 		}
 		else
 			return gcnew Piso(gcnew Posicion(p->x, p->y));

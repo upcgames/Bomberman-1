@@ -57,7 +57,7 @@ namespace Bomberman
 					Winform::winform->Close();
 				}
 			}
-			else if (e->KeyCode == Keys::Up)
+			else if (e->KeyCode == Keys::Up || e->KeyCode == Keys::W)
 			{
 				if (opcion == "Instrucciones")
 				{
@@ -72,7 +72,7 @@ namespace Bomberman
 					opcion = "Creditos";
 				}
 			}
-			else if (e->KeyCode == Keys::Down)
+			else if (e->KeyCode == Keys::Down || e->KeyCode == Keys::S)
 			{
 				if (opcion == "Iniciar Juego")
 				{

@@ -2,11 +2,12 @@
 
 namespace Bomberman
 {
-	Upecino::Upecino(Posicion^ p, String^ pNombre)
+	Upecino::Upecino(Posicion^ p)
 	{
 		imagen = Imagenes::BombermanSprite;
 		indiceSprite = 0;
 		radioExplosion = 1;
+		contadorBombas = 2;
 		direccion = Direcciones::Abajo;
 		estado = Estados::Idle;
 		EsAtacado += gcnew Action(this, &Upecino::PierdeUnaVida);
@@ -16,7 +17,6 @@ namespace Bomberman
 		alto = 64;
 		moviendose = false;
 		vida = 5;
-		nombre = pNombre;
 	}
 	void Upecino::MostrarUpecino(Graphics^ graphics)
 	{
@@ -39,8 +39,8 @@ namespace Bomberman
 
 			if (indiceSprite == 16)//termina animacion de muerte
 			{
-				Escena::ActivarEscena(Winform::gameOver);
 				Escena::DesactivarEscena(Winform::juego);
+				Escena::ActivarEscena(Winform::gameOver);
 				return;
 			}
 		}
@@ -69,31 +69,30 @@ namespace Bomberman
 		}
 
 		graphics->DrawImage(imagen, Rectangle(posicion->x, posicion->y, ancho, alto), Rectangle(indiceSprite / 2 * 24, subIndice * 24, 23, 23), GraphicsUnit::Pixel);
-		if (estado == Inmortal)
+		if (this->estado == Inmortal)
 			graphics->DrawString("III", gcnew Font("Arial", 16, FontStyle::Bold), gcnew SolidBrush(Color::White), Point(posicion->x + 20, posicion->y + 32));
+		if (this->estado == Fantasma)
+			graphics->DrawString(" F ", gcnew Font("Arial", 16, FontStyle::Bold), gcnew SolidBrush(Color::White), Point(posicion->x + 20, posicion->y + 32));
 	}
 	void Upecino::PierdeUnaVida()
 	{
 		if (estado == Idle || estado == Fantasma || estado == Celebrando)
 		{
-			if (vida == 0)
-			{
-				moviendose = false;
-				estado = Muriendo;
-				indiceSprite = -1;
-			}
+			if (vida == 1)
+				this->AnimacionMuerte();
 			else
 			{
-				tiempoInmortal = 50;
-				estado = Inmortal;
+				this->tiempoInmortal = 50;
+				this->estado = Inmortal;
 			}
-
-			vida -= 1;
+			this->vida -= 1;
 		}
 	}
-	void Upecino::CuandoMuere()
+	void Upecino::AnimacionMuerte()
 	{
-
+		this->moviendose = false;
+		this->estado = Muriendo;
+		this->indiceSprite = -1;//la animacion de muerte salga desde el principio
 	}
 	void Upecino::Avanzar(Direcciones pDireccion)
 	{
@@ -114,7 +113,7 @@ namespace Bomberman
 			
 		direccion = pDireccion;
 
-		indiceSprite += 1;
+		indiceSprite ++;
 
 		if (indiceSprite == 8)
 			indiceSprite = 10;
@@ -124,9 +123,48 @@ namespace Bomberman
 
 		if (estado == Fantasma)
 		{
-			//Filtro de Bloques, Malignos, Items
-			posicion->Aumentar(direccion, velocidad);
-			return;
+			Objeto^ objeto = Nivel::getObjetoColisionante(direccion, velocidad);
+
+			if (objeto->tipo == oBloque)
+				return;
+			if (objeto->tipo == oBomba)//Traspasa Bombas
+			{
+				posicion->Aumentar(direccion, velocidad);
+				return;
+			}
+			if (objeto->tipo == oCaja)//Traspasa cajas
+			{
+				posicion->Aumentar(direccion, velocidad);
+				return;
+			}
+			if (objeto->tipo == oItem)//Toca items
+			{
+				if (dynamic_cast<Item^>(objeto)->tipoItem == Powerade)
+					Winform::upecino->radioExplosion = Winform::upecino->radioExplosion + 1;
+				else if (dynamic_cast<Item^>(objeto)->tipoItem == Cura)
+					Winform::upecino->vida += 1;
+				else if (dynamic_cast<Item^>(objeto)->tipoItem == BombaPlus)
+					Upecino::contadorBombas += 1;
+				else if (dynamic_cast<Item^>(objeto)->tipoItem == Pasamuros)
+					estado = Fantasma;
+
+				Winform::objetos->matriz[objeto->posicion->x / 64, objeto->posicion->y / 64] = gcnew Piso(objeto->posicion);
+				posicion->Aumentar(direccion, velocidad);
+				return;
+			}
+			if (objeto->tipo == oPortal)//Toca portal
+			{
+				if (dynamic_cast<Portal^>(objeto)->visible)
+					Upecino::TocaElPortal();
+				else
+					posicion->Aumentar(direccion, velocidad);
+				return;
+			}
+			if (objeto->tipo == oPiso)//Toca piso
+			{
+				posicion->Aumentar(direccion, velocidad);
+				return;
+			}
 		}
 
 		if (estado == Inmortal)
@@ -134,16 +172,24 @@ namespace Bomberman
 			//Filtro de Bloques, Cajas, Items
 			Objeto^ objeto = Nivel::getObjetoColisionante(direccion, velocidad);
 
-			if (objeto->tipo == oBloque)
+			if (objeto->tipo == oBloque)//Toca bloque
 				return;
-			if (objeto->tipo == oCaja)
+			if (objeto->tipo == oCaja)//Toca caja
 				return;
-			if (objeto->tipo == oItem)
+			if (objeto->tipo == oItem)//Toca item
 			{
 				if (dynamic_cast<Item^>(objeto)->tipoItem == Powerade)
 					Winform::upecino->radioExplosion = Winform::upecino->radioExplosion + 1;
+				else if (dynamic_cast<Item^>(objeto)->tipoItem == Cura)
+					Winform::upecino->vida += 1;
+				else if (dynamic_cast<Item^>(objeto)->tipoItem == BombaPlus)
+					Upecino::contadorBombas += 1;
+				else if (dynamic_cast<Item^>(objeto)->tipoItem == Pasamuros)
+					estado = Fantasma;
 
 				Winform::objetos->matriz[objeto->posicion->x / 64, objeto->posicion->y / 64] = gcnew Piso(objeto->posicion);
+				posicion->Aumentar(direccion, velocidad);
+				return;
 			}
 
 			posicion->Aumentar(direccion, velocidad);
@@ -168,18 +214,21 @@ namespace Bomberman
 					Winform::upecino->radioExplosion = Winform::upecino->radioExplosion + 1;
 				else if (dynamic_cast<Item^>(objeto)->tipoItem == Cura)
 					Winform::upecino->vida += 1;
+				else if (dynamic_cast<Item^>(objeto)->tipoItem == BombaPlus)
+					Upecino::contadorBombas += 1;
+				else if (dynamic_cast<Item^>(objeto)->tipoItem == Pasamuros)
+					estado = Fantasma;
 
 				Winform::objetos->matriz[objeto->posicion->x / 64, objeto->posicion->y / 64] = gcnew Piso(objeto->posicion);
 				posicion->Aumentar(direccion, velocidad);
 				return;
 			}
-			if (objeto->tipo == oPortal && dynamic_cast<Portal^>(objeto)->visible)
+			if (objeto->tipo == oPortal)
 			{
-				Upecino::TocaElPortal();
-			}
-			if (objeto->tipo == oPortal && !(dynamic_cast<Portal^>(objeto)->visible))
-			{
-				posicion->Aumentar(direccion, velocidad);
+				if (dynamic_cast<Portal^>(objeto)->visible)
+					Upecino::TocaElPortal();
+				else
+					posicion->Aumentar(direccion, velocidad);
 				return;
 			}
 			if (objeto->tipo == oPiso)

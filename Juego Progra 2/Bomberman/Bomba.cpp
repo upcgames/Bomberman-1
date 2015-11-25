@@ -27,27 +27,62 @@ namespace Bomberman
 	{
 		Objeto^ objeto;
 
+		//Centro
+			//Colision de bomba con upecino
+			if (this->getBody().IntersectsWith(Winform::upecino->getBody()))
+				Winform::upecino->EsAtacado();
+
+			//Colision maligno fuego
+			Maligno::ColisionMaligno_Fuego(this->posicion->x, this->posicion->y);
+
+			objeto = Nivel::getObjeto(posicion);
+			//colision bomba bloque
+			if (objeto->tipo == oBloque)
+				;
+
+			if (objeto->tipo == oPortal)
+				;
+
+			//colision bomba caja
+			if (objeto->tipo == oCaja)
+			{
+				if (tiempo == 0)//Destruye la caja al final de la explosion
+				{
+					objeto = Nivel::getContenidoCaja(objeto->posicion);
+					Winform::objetos->matriz[objeto->posicion->x / 64, objeto->posicion->y / 64] = objeto;
+				}
+		}
+		//Colision bomba con item
+		if (objeto->tipo == oItem)
+			Winform::objetos->matriz[objeto->posicion->x / 64, objeto->posicion->y / 64] = gcnew Piso(objeto->posicion);
+
 		//Arriba
 		for (int i = 1; i <= radioExplosion; i++)
 		{
 			objeto = Nivel::getObjeto(posicion->getIncrementada(Arriba, 64 * i));
 
+			//Colision de bomba con upecino
 			if (Rectangle(posicion->x, posicion->y - 64 * i, 64, 64).IntersectsWith(Winform::upecino->getBody()))
 				Winform::upecino->EsAtacado();
 			
+			//Colision maligno fuego
 			Maligno::ColisionMaligno_Fuego(posicion->x, posicion->y - 64 * i);
 
+			//colision bomba bloque
 			if (objeto->tipo == oBloque)
 				break;
+
+			//colision bomba caja
 			if (objeto->tipo == oCaja)
 			{
-				if (tiempo == 0)
+				if (tiempo == 0)//Destruye la caja al final de la explosion
 				{
 					objeto = Nivel::getContenidoCaja(objeto->posicion);
 					Winform::objetos->matriz[objeto->posicion->x / 64, objeto->posicion->y / 64] = objeto;
 				}
 				break;
 			}
+			//Colision bomba con item
 			if (objeto->tipo == oItem)
 			{
 				Winform::objetos->matriz[objeto->posicion->x / 64, objeto->posicion->y / 64] = gcnew Piso(objeto->posicion);
