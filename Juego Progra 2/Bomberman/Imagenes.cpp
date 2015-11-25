@@ -7,6 +7,7 @@ namespace Bomberman
 		//Personajes Bomberman
 		Imagenes::BombermanSprite = Image::FromFile("Bomberman.png");
 		Imagenes::BomberdogSprite = Image::FromFile("Bomberdog.png");
+		Imagenes::PirateBombermanSprite = Image::FromFile("PirateBomberman.png");
 
 		//Profesores Malignos
 		Imagenes::NinjaBombermanSprite = Image::FromFile("NinjaBomberman.png");
@@ -46,10 +47,6 @@ namespace Bomberman
 		Imagenes::Congratulations = Image::FromFile("Imagenes\\Interfaces\\Congratulations.png");
 		Imagenes::GameOver = Image::FromFile("Imagenes\\Interfaces\\GameOver.png");
 		Imagenes::Creditos = Image::FromFile("Imagenes\\Interfaces\\Creditos.png");
-		//Antiguas interfaces
-		Imagenes::oldRanking = Image::FromFile("Imagenes\\Interfaces\\oldRanking.jpg");
-		Imagenes::oldInstrucciones = Image::FromFile("Imagenes\\Interfaces\\oldInstrucciones.png");
-
 	}
 
 }

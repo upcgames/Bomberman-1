@@ -9,7 +9,7 @@ namespace Bomberman
 		onKeyUp = gcnew KeyEventHandler(this, &Juego::teclaUp);
 		onMouseClick = gcnew MouseEventHandler(this, &Juego::mouseClick);
 
-		cheatNpress = false;
+		cheatKey = 'z';
 
 		Winform::upecino = gcnew Upecino(gcnew Posicion(0, 0), "Diego");
 		Winform::bombas = gcnew ArrBombas();		
@@ -34,22 +34,22 @@ namespace Bomberman
 	{
 		if (activo && dibujado)
 		{
-			if (e->KeyCode == Keys::W)
+			if (e->KeyCode == Keys::W || e->KeyCode == Keys::Up)
 			{
 				Winform::upecino->moviendose = true;
 				Winform::upecino->direccion = Arriba;
 			}
-			else if (e->KeyCode == Keys::S)
+			else if (e->KeyCode == Keys::S || e->KeyCode == Keys::Down)
 			{
 				Winform::upecino->moviendose = true;
 				Winform::upecino->direccion = Abajo;
 			}
-			else if (e->KeyCode == Keys::A)
+			else if (e->KeyCode == Keys::A || e->KeyCode == Keys::Left)
 			{
 				Winform::upecino->moviendose = true;
 				Winform::upecino->direccion = Izquierda;
 			}
-			else if (e->KeyCode == Keys::D)
+			else if (e->KeyCode == Keys::D || e->KeyCode == Keys::Right)
 			{
 				Winform::upecino->moviendose = true;
 				Winform::upecino->direccion = Derecha;
@@ -65,7 +65,15 @@ namespace Bomberman
 			}
 			else if (e->KeyCode == Keys::N)
 			{
-				cheatNpress = true;
+				cheatKey = 'n';
+			}
+			else if (e->KeyCode == Keys::B)
+			{
+				cheatKey = 'b';
+			}
+			else if (e->KeyCode == Keys::T)
+			{
+				cheatKey = 't';
 			}
 			else if (e->KeyCode == Keys::C)
 			{
@@ -74,35 +82,35 @@ namespace Bomberman
 			}
 			else if (e->KeyCode == Keys::D1)
 			{
-				if (cheatNpress)
+				if (cheatKey == 'n')
 				{
 					Nivel::PasarANivel(1);
 				}
 			}
 			else if (e->KeyCode == Keys::D2)
 			{
-				if (cheatNpress)
+				if (cheatKey == 'n')
 				{
 					Nivel::PasarANivel(2);
 				}
 			}
 			else if (e->KeyCode == Keys::D3)
 			{
-				if (cheatNpress)
+				if (cheatKey == 'n')
 				{
 					Nivel::PasarANivel(3);
 				}
 			}
 			else if (e->KeyCode == Keys::D4)
 			{
-				if (cheatNpress)
+				if (cheatKey == 'n')
 				{
 					Nivel::PasarANivel(4);
 				}
 			}
 			else if (e->KeyCode == Keys::D5)
 			{
-				if (cheatNpress)
+				if (cheatKey == 'n')
 				{
 					Nivel::PasarANivel(5);
 				}
@@ -125,13 +133,20 @@ namespace Bomberman
 			Winform::upecino->Detener();
 		else if (e->KeyCode == Keys::D && Winform::upecino->direccion == Derecha)
 			Winform::upecino->Detener();
-		if (e->KeyCode == Keys::N && cheatNpress)
-			cheatNpress = false;
+		if (e->KeyCode == Keys::N && cheatKey == 'n')
+			cheatKey = 'z';
+		else if (e->KeyCode == Keys::B && cheatKey == 'b')
+			cheatKey = 'z';
+		else if (e->KeyCode == Keys::T && cheatKey == 't')
+			cheatKey = 'z';
 	}
 
 	void Juego::mouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e)
 	{
-		Winform::bombas->AgregarBomba(gcnew Bomba(gcnew Posicion(e->X - 32, e->Y - 32)));
+		if (cheatKey == 'b')
+			Winform::bombas->AgregarBomba(gcnew Bomba(gcnew Posicion(e->X - 32, e->Y - 32)));
+		else if (cheatKey == 't')
+			Winform::upecino->posicion->Igualar(e->X - 32, e->Y - 32, 64);
 	}
 
 

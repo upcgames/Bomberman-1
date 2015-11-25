@@ -78,7 +78,9 @@ namespace Bomberman
 				}
 				else if (opcion == "PirateBomberman")
 				{
-
+					Winform::upecino->imagen = Imagenes::PirateBombermanSprite;
+					DesactivarEscena(this);
+					ActivarEscena(Winform::juego);
 				}
 			}
 			else if (e->KeyCode == Keys::Up)

@@ -23,7 +23,8 @@ namespace Bomberman
 		Posicion(int pX, int pY);
 		Posicion(int pX, int pY, int multiplo);
 		bool EsIgualA(Posicion^ p);
-		void Igualar(Posicion^ p);                                                                                                                                                                                                                                                                                                                                                                        
+		void Igualar(Posicion^ p);
+		void Igualar(int pX, int pY, int multiplo);
 		void Aumentar(Direcciones direccion, int velocidad);
 		void ToZero();
 		Posicion^ getIncrementada(Direcciones direccion, int velocidad);
@@ -236,6 +237,7 @@ namespace Bomberman
 		MouseEventHandler^ onMouseClick;
 		EventHandler^ onTimerTick;
 		Escena();
+		static void CambiarEscena(Escena^ escena);
 		static void ActivarEscena(Escena^ escena);
 		static void DesactivarEscena(Escena^ escena);
 	};
@@ -310,7 +312,7 @@ namespace Bomberman
 	{
 	public:
 		Juego();
-		bool cheatNpress;
+		char cheatKey;
 		int nivel;
 		static void GanarJuego();
 		static void PerderJuego();
@@ -326,7 +328,7 @@ namespace Bomberman
 		Imagenes();
 		static Image^ BombermanSprite;
 		static Image^ BomberdogSprite;
-		static Image^ spritePirateBomberman;
+		static Image^ PirateBombermanSprite;
 
 		static Image^ NinjaBombermanSprite;
 		static Image^ PlunderBombermanSprite;
@@ -369,8 +371,5 @@ namespace Bomberman
 		static Image^ Congratulations;
 		static Image^ GameOver;
 		static Image^ Creditos;
-		static Image^ oldRanking;
-		static Image^ oldInstrucciones;
-
 	};
 }

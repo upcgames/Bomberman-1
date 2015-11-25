@@ -38,7 +38,8 @@ namespace Bomberman
 		static Nivel3^ nivel3;
 		static Nivel4^ nivel4;
 		static Nivel5^ nivel5;
-		
+		bool cambioDeEscena;
+
 		Winform(void);
 		~Winform();
 	public: static System::Windows::Forms::Timer^  timer;
@@ -46,35 +47,38 @@ namespace Bomberman
 
 #pragma region Windows Form Designer generated code
 
-		void InitializeComponent(void)
-		{
-			this->components = (gcnew System::ComponentModel::Container());
-			this->timer = (gcnew System::Windows::Forms::Timer(this->components));
-			this->SuspendLayout();
-			// 
-			// timer
-			// 
-			this->timer->Enabled = true;
-			this->timer->Interval = 50;
-			this->timer->Tick += gcnew System::EventHandler(this, &Winform::timer_Tick);
-			// 
-			// Winform
-			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(832, 576);
-			this->ControlBox = false;
-			this->Name = L"Winform";
-			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Winform";
-			this->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Winform::Winform_MouseClick);
-			this->ResumeLayout(false);
+			 void InitializeComponent(void)
+			 {
+				 this->components = (gcnew System::ComponentModel::Container());
+				 this->timer = (gcnew System::Windows::Forms::Timer(this->components));
+				 this->SuspendLayout();
+				 // 
+				 // timer
+				 // 
+				 this->timer->Enabled = true;
+				 this->timer->Interval = 50;
+				 // 
+				 // Winform
+				 // 
+				 this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+				 this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+				 this->ClientSize = System::Drawing::Size(832, 576);
+				 this->ControlBox = false;
+				 this->MaximumSize = System::Drawing::Size(848, 615);
+				 this->MinimumSize = System::Drawing::Size(848, 615);
+				 this->Name = L"Winform";
+				 this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+				 this->Text = L"Winform";
+				 this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Winform::Winform_KeyDown);
+				 this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &Winform::Winform_KeyUp);
+				 this->ResumeLayout(false);
 
-		}
+			 }
 #pragma endregion
-	private: System::Void timer_Tick(System::Object^  sender, System::EventArgs^  e) {
-	}
-	private: System::Void Winform_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-	}
+	
+	private: System::Void Winform_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
+	
+	private: System::Void Winform_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
+	
 	};
 }

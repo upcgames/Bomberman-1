@@ -34,6 +34,18 @@ namespace Bomberman
 		y = p->y;
 	}
 
+	void Posicion::Igualar(int pX, int pY, int multiplo)
+	{
+		float xx = pX * 1.0f / multiplo;
+		float yy = pY * 1.0f / multiplo;
+
+		xx += 0.5;
+		yy += 0.5;
+
+		x = int(xx) * multiplo;
+		y = int(yy) * multiplo;
+	}
+
 	void Posicion::Aumentar(Direcciones direccion, int velocidad)
 	{
 		if (direccion == Direcciones::Arriba)
