@@ -35,20 +35,16 @@ namespace Bomberman
 			//Colision maligno fuego
 			Maligno::ColisionMaligno_Fuego(this->posicion->x, this->posicion->y);
 
-			objeto = Nivel::getObjeto(posicion);
-			//colision bomba bloque
-			if (objeto->tipo == oBloque)
-				;
-
-			if (objeto->tipo == oPortal)
-				;
+			objeto = Objeto::getObjeto(posicion);
+			//colision Bomba con bloque y portal
+			//No pasa anda
 
 			//colision bomba caja
 			if (objeto->tipo == oCaja)
 			{
 				if (tiempo == 0)//Destruye la caja al final de la explosion
 				{
-					objeto = Nivel::getContenidoCaja(objeto->posicion);
+					objeto = Caja::getContenidoCaja(objeto->posicion);
 					Winform::objetos->matriz[objeto->posicion->x / 64, objeto->posicion->y / 64] = objeto;
 				}
 		}
@@ -59,7 +55,7 @@ namespace Bomberman
 		//Arriba
 		for (int i = 1; i <= radioExplosion; i++)
 		{
-			objeto = Nivel::getObjeto(posicion->getIncrementada(Arriba, 64 * i));
+			objeto = Objeto::getObjeto(posicion->getIncrementada(Arriba, 64 * i));
 
 			//Colision de bomba con upecino
 			if (Rectangle(posicion->x, posicion->y - 64 * i, 64, 64).IntersectsWith(Winform::upecino->getBody()))
@@ -77,7 +73,7 @@ namespace Bomberman
 			{
 				if (tiempo == 0)//Destruye la caja al final de la explosion
 				{
-					objeto = Nivel::getContenidoCaja(objeto->posicion);
+					objeto = Caja::getContenidoCaja(objeto->posicion);
 					Winform::objetos->matriz[objeto->posicion->x / 64, objeto->posicion->y / 64] = objeto;
 				}
 				break;
@@ -94,7 +90,7 @@ namespace Bomberman
 		//Abajo
 		for (int i = 1; i <= radioExplosion; i++)
 		{
-			objeto = Nivel::getObjeto(posicion->getIncrementada(Abajo, 64 * i));
+			objeto = Objeto::getObjeto(posicion->getIncrementada(Abajo, 64 * i));
 
 			if (Rectangle(posicion->x, posicion->y + 64 * i, 64, 64).IntersectsWith(Winform::upecino->getBody()))
 				Winform::upecino->EsAtacado();
@@ -107,7 +103,7 @@ namespace Bomberman
 			{
 				if (tiempo == 0)
 				{
-					objeto = Nivel::getContenidoCaja(objeto->posicion);
+					objeto = Caja::getContenidoCaja(objeto->posicion);
 					Winform::objetos->matriz[objeto->posicion->x / 64, objeto->posicion->y / 64] = objeto;
 				}
 				break;
@@ -122,7 +118,7 @@ namespace Bomberman
 		//Izquierda
 		for (int i = 1; i <= radioExplosion; i++)
 		{
-			objeto = Nivel::getObjeto(posicion->getIncrementada(Izquierda, 64 * i));
+			objeto = Objeto::getObjeto(posicion->getIncrementada(Izquierda, 64 * i));
 
 			if (Rectangle(posicion->x - 64 * i, posicion->y, 64, 64).IntersectsWith(Winform::upecino->getBody()))
 				Winform::upecino->EsAtacado();
@@ -135,7 +131,7 @@ namespace Bomberman
 			{
 				if (tiempo == 0)
 				{
-					objeto = Nivel::getContenidoCaja(objeto->posicion);
+					objeto = Caja::getContenidoCaja(objeto->posicion);
 					Winform::objetos->matriz[objeto->posicion->x / 64, objeto->posicion->y / 64] = objeto;
 				}
 				break;
@@ -150,7 +146,7 @@ namespace Bomberman
 		//Derecha
 		for (int i = 1; i <= radioExplosion; i++)
 		{
-			objeto = Nivel::getObjeto(posicion->getIncrementada(Derecha, 64 * i));
+			objeto = Objeto::getObjeto(posicion->getIncrementada(Derecha, 64 * i));
 
 			if (Rectangle(posicion->x + 64 * i, posicion->y, 64, 64).IntersectsWith(Winform::upecino->getBody()))
 				Winform::upecino->EsAtacado();
@@ -163,7 +159,7 @@ namespace Bomberman
 			{
 				if (tiempo == 0)
 				{
-					objeto = Nivel::getContenidoCaja(objeto->posicion);
+					objeto = Caja::getContenidoCaja(objeto->posicion);
 					Winform::objetos->matriz[objeto->posicion->x / 64, objeto->posicion->y / 64] = objeto;
 				}
 				break;

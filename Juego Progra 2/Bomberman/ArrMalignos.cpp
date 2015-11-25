@@ -37,6 +37,12 @@ namespace Bomberman
 					Winform::upecino->EsAtacado();
 				if (arreglo[i]->tipo == m1)
 					dynamic_cast<Maligno1^>(arreglo[i])->MostrarSprite(graphics);
+				if (arreglo[i]->tipo == m2)
+					dynamic_cast<Maligno2^>(arreglo[i])->MostrarSprite(graphics);
+				if (arreglo[i]->tipo == m3)
+					dynamic_cast<Maligno3^>(arreglo[i])->MostrarSprite(graphics);
+				if (arreglo[i]->tipo == m4)
+					dynamic_cast<Maligno4^>(arreglo[i])->MostrarSprite(graphics);
 			}
 		}
 	}

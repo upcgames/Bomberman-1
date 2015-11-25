@@ -18,11 +18,11 @@ namespace Bomberman
 		generarMatrizObjetos(matriz);
 
 		arregloMalignos = gcnew ArrMalignos(6);
-		arregloMalignos->arreglo[0] = gcnew Maligno1(gcnew Posicion(64, 128), 0);
-		arregloMalignos->arreglo[1] = gcnew Maligno1(gcnew Posicion(64, 384), 0);
-		arregloMalignos->arreglo[2] = gcnew Maligno1(gcnew Posicion(704, 128), 0);
-		arregloMalignos->arreglo[3] = gcnew Maligno1(gcnew Posicion(704, 384), 0);
-		arregloMalignos->arreglo[4] = gcnew Maligno1(gcnew Posicion(384, 64), 0);
-		arregloMalignos->arreglo[5] = gcnew Maligno1(gcnew Posicion(384, 448), 0);
+		arregloMalignos->arreglo[0] = gcnew Maligno2(gcnew Posicion(0, 128), Abajo, 0);
+		arregloMalignos->arreglo[1] = gcnew Maligno2(gcnew Posicion(0, 384), Arriba, 0);
+		arregloMalignos->arreglo[2] = gcnew Maligno2(gcnew Posicion(768, 128), Derecha, 0);
+		arregloMalignos->arreglo[3] = gcnew Maligno2(gcnew Posicion(768, 384), Izquierda, 0);
+		arregloMalignos->arreglo[4] = gcnew Maligno2(gcnew Posicion(384, 256), Abajo, 0);
+		arregloMalignos->arreglo[5] = gcnew Maligno2(gcnew Posicion(384, 256), Derecha, 0);
 	}
 }

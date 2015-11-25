@@ -5,15 +5,15 @@ namespace Bomberman
 	Imagenes::Imagenes()
 	{
 		//Personajes Bomberman
-		Imagenes::BombermanSprite = Image::FromFile("Bomberman.png");
-		Imagenes::BomberdogSprite = Image::FromFile("Bomberdog.png");
-		Imagenes::PirateBombermanSprite = Image::FromFile("PirateBomberman.png");
+		Imagenes::BombermanSprite = Image::FromFile("Imagenes\\Personajes\\Bomberman.png");
+		Imagenes::BomberdogSprite = Image::FromFile("Imagenes\\Personajes\\Bomberdog.png");
+		Imagenes::PirateBombermanSprite = Image::FromFile("Imagenes\\Personajes\\PirateBomberman.png");
 
 		//Profesores Malignos
-		Imagenes::NinjaBombermanSprite = Image::FromFile("NinjaBomberman.png");
+		Imagenes::NinjaBombermanSprite = Image::FromFile("Imagenes\\Personajes\\NinjaBomberman.png");
 
 		//Objetos
-		Imagenes::BombasSprite = Image::FromFile("Bombas.png");
+		Imagenes::BombasSprite = Image::FromFile("Imagenes\\Objetos\\Bombas.png");
 		Imagenes::Cursor = Image::FromFile("Imagenes\\Objetos\\Cursor.png");
 		Imagenes::Portal = Image::FromFile("Imagenes\\Objetos\\Portal.png");
 

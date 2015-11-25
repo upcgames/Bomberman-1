@@ -84,9 +84,7 @@ namespace Bomberman
 	public:
 		Maligno1(Posicion^ p, int pVida);
 		int contador;
-		bool sentidoDeGiro;
 		void MostrarSprite(Graphics^ graphics);
-		void CuandoBombaLeCae(int damageBomba);
 		void Muere();
 		void Avanzar();
 	};
@@ -94,11 +92,11 @@ namespace Bomberman
 	public ref class Maligno2 : public Maligno
 	{
 	public:
-		Maligno2(Posicion^ p, int pVida);
+		Maligno2(Posicion^ p, Direcciones pDireccion, int pVida);
 		void MostrarSprite(Graphics^ graphics);
-		void CuandoBombaLeCae(int damageBomba);
 		void Muere();
 		void Avanzar();
+		void CambiarDeDireccion();
 	};
 
 	public ref class Maligno3 : public Maligno
@@ -106,9 +104,9 @@ namespace Bomberman
 	public:
 		Maligno3(Posicion^ p, int pVida);
 		void MostrarSprite(Graphics^ graphics);
-		void CuandoBombaLeCae(int damageBomba);
 		void Muere();
 		void Avanzar();
+		void CambiarDeDireccion();
 	};
 
 	public ref class Maligno4 : public Maligno
@@ -116,15 +114,17 @@ namespace Bomberman
 	public:
 		Maligno4(Posicion^ p, int pVida);
 		void MostrarSprite(Graphics^ graphics);
-		void CuandoBombaLeCae(int damageBomba);
 		void Muere();
 		void Avanzar();
+		void CambiarDeDireccion();
 	};
 
 	public ref class Objeto : public Figura
 	{
 	public:
 		Objetos tipo;
+		static Objeto^ getObjetoColisionante(Direcciones direccion, int velocidad, Posicion^ pPosicion);
+		static Objeto^ getObjeto(Posicion^ posicion);
 	};
 
 	public ref class Piso : public Objeto
@@ -140,6 +140,7 @@ namespace Bomberman
 		Caja(Posicion^ p);
 		void cuandoBombaLeCae();
 		void MostrarSprite(Graphics^ graphics);
+		static Objeto^ getContenidoCaja(Posicion^ p);
 	};
 
 	public ref class Bloque : public Objeto
@@ -215,9 +216,6 @@ namespace Bomberman
 		void generarMatrizObjetos(Objetos matriz[9][13]);
 		static void PasarANivel(int pNivel);
 		static void MostrarNivel(Graphics^ graphics);
-		static Objeto^ getObjetoColisionante(Direcciones direccion, int velocidad);
-		static Objeto^ getContenidoCaja(Posicion^ p);
-		static Objeto^ getObjeto(Posicion^ posicion);
 	};
 
 	public ref class Nivel1 : public Nivel{public: Nivel1();};

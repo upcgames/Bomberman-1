@@ -44,6 +44,7 @@ namespace Bomberman
 		Winform(void);
 		~Winform();
 	public: static System::Windows::Forms::Timer^  timer;
+
 	private: System::ComponentModel::IContainer^  components;
 
 #pragma region Windows Form Designer generated code
@@ -51,6 +52,7 @@ namespace Bomberman
 			 void InitializeComponent(void)
 			 {
 				 this->components = (gcnew System::ComponentModel::Container());
+				 System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Winform::typeid));
 				 this->timer = (gcnew System::Windows::Forms::Timer(this->components));
 				 this->SuspendLayout();
 				 // 
@@ -65,6 +67,7 @@ namespace Bomberman
 				 this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 				 this->ClientSize = System::Drawing::Size(832, 576);
 				 this->ControlBox = false;
+				 this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 				 this->MaximumSize = System::Drawing::Size(848, 615);
 				 this->MinimumSize = System::Drawing::Size(848, 615);
 				 this->Name = L"Winform";

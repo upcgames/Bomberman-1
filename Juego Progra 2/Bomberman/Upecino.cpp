@@ -123,7 +123,7 @@ namespace Bomberman
 
 		if (estado == Fantasma)
 		{
-			Objeto^ objeto = Nivel::getObjetoColisionante(direccion, velocidad);
+			Objeto^ objeto = Objeto::getObjetoColisionante(direccion, velocidad, this->posicion);
 
 			if (objeto->tipo == oBloque)
 				return;
@@ -170,7 +170,7 @@ namespace Bomberman
 		if (estado == Inmortal)
 		{
 			//Filtro de Bloques, Cajas, Items
-			Objeto^ objeto = Nivel::getObjetoColisionante(direccion, velocidad);
+			Objeto^ objeto = Objeto::getObjetoColisionante(direccion, velocidad, this->posicion);
 
 			if (objeto->tipo == oBloque)//Toca bloque
 				return;
@@ -200,7 +200,7 @@ namespace Bomberman
 		if (estado == Idle)
 		{
 			//Filtro de Bloques, Bombas, Malignos, Cajas, Items
-			Objeto^ objeto = Nivel::getObjetoColisionante(direccion, velocidad);
+			Objeto^ objeto = Objeto::getObjetoColisionante(direccion, velocidad, this->posicion);
 
 			if (objeto->tipo == oBomba)
 				return;
