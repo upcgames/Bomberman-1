@@ -131,13 +131,13 @@ namespace Bomberman
 
 	void Juego::teclaUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e)
 	{
-		if (e->KeyCode == Keys::W && Winform::upecino->direccion == Arriba)
+		if (e->KeyCode == Keys::W || Winform::upecino->direccion == Arriba)
 			Winform::upecino->Detener();
-		else if (e->KeyCode == Keys::S && Winform::upecino->direccion == Abajo)
+		else if (e->KeyCode == Keys::S || Winform::upecino->direccion == Abajo)
 			Winform::upecino->Detener();
-		else if (e->KeyCode == Keys::A && Winform::upecino->direccion == Izquierda)
+		else if (e->KeyCode == Keys::A || Winform::upecino->direccion == Izquierda)
 			Winform::upecino->Detener();
-		else if (e->KeyCode == Keys::D && Winform::upecino->direccion == Derecha)
+		else if (e->KeyCode == Keys::D || Winform::upecino->direccion == Derecha)
 			Winform::upecino->Detener();
 		if (e->KeyCode == Keys::N && cheatKey == 'n')
 			cheatKey = 'z';
